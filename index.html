@@ -1162,11 +1162,8 @@
   /* ─── VIDEO BACKGROUND ─── */
   .hero-bg-video {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .hero-bg-fallback {
@@ -1174,14 +1171,12 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    display: none; /* hidden by default, shown if video fails */
+    z-index: 0;
   }
 
-  /* Show fallback if video has no source */
-  .hero-bg-video:not([src]):not(:has(source)),
-  .hero-bg-video:empty {
-    display: none;
-  }
+  .hero-overlay { z-index: 1; }
+  .hero-content { z-index: 2; }
+  .hero-dots    { z-index: 3; }
 </style>
 </head>
 <body>
@@ -1273,15 +1268,15 @@
 <section class="hero" style="padding:0;">
   <div class="hero-slides">
     <div class="hero-slide active">
-      <!-- VIDEO BACKGROUND: тань видео файлын нэрийг hero-bg-video src-д оруулна уу -->
-      <video class="hero-bg-video" id="heroBgVideo" autoplay muted loop playsinline
-        poster=""
-        onerror="this.style.display='none';document.getElementById('heroBgFallback').style.display='block'">
-        <!-- Өөрийн видеоны URL-ийг энд оруулна уу, жишээ нь: -->
-        <!-- <source src="https://growthdeal.github.io/misheelexpo/hero-video.mp4" type="video/mp4"> -->
-        <!-- Видео байхгүй бол автоматаар зургийн дэвсгэр харагдана -->
-      </video>
-      <div class="hero-bg-fallback" id="heroBgFallback" style="background: linear-gradient(135deg, #0d1e2e 0%, #1a3a5c 40%, #0f4a3a 100%);">
+      <!-- ═══ YOUTUBE BACKGROUND VIDEO ═══ -->
+      <!-- YouTube видео ID солихдоо "MYXT5-HOK40" гэсэн хэсгийг өөрчлөхөд л болно -->
+      <iframe id="heroBgVideo"
+        src="https://www.youtube.com/embed/MYXT5-HOK40?autoplay=1&mute=1&loop=1&playlist=MYXT5-HOK40&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&enablejsapi=1"
+        style="position:absolute;inset:-10%;width:120%;height:120%;border:none;pointer-events:none;"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+      <div class="hero-bg-fallback" id="heroBgFallback" style="background: linear-gradient(135deg, #0d1e2e 0%, #1a3a5c 40%, #0f4a3a 100%);display:block;">
         <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,0.015) 60px,rgba(255,255,255,0.015) 61px);"></div>
       </div>
       <div class="hero-overlay"></div>
@@ -1945,17 +1940,7 @@
       if (saved && translations[saved]) setLang(saved);
     } catch(e) {}
 
-    // VIDEO: check if video has sources, else show fallback
-    const vid = document.getElementById('heroBgVideo');
-    const fallback = document.getElementById('heroBgFallback');
-    if (vid && vid.querySelectorAll('source').length === 0) {
-      vid.style.display = 'none';
-      fallback.style.display = 'block';
-    }
-    vid && vid.addEventListener('error', () => {
-      vid.style.display = 'none';
-      fallback.style.display = 'block';
-    });
+    // YouTube iframe is always shown; fallback is behind it as safety net
   });
 
   // ═══════════════════════════════════════════
