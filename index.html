@@ -1145,15 +1145,28 @@
     .footer-grid { grid-template-columns: 1fr 1fr; }
   }
 
-  @media (max-width: 768px) {
-    nav .nav-menu { display: none; }
-    .hero h1 { font-size: 38px; }
-    .hero-content { padding: 0 30px; }
-    .about-grid, .venue-grid, .contact-grid { grid-template-columns: 1fr; }
-    .events-grid, .services-grid, .logos-grid { grid-template-columns: 1fr; }
-    .stats-inner { grid-template-columns: 1fr 1fr; }
-    section { padding: 60px 20px; }
-    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  /* ─── VIDEO BACKGROUND ─── */
+  .hero-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-bg-fallback {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* hidden by default, shown if video fails */
+  }
+
+  /* Show fallback if video has no source */
+  .hero-bg-video:not([src]):not(:has(source)),
+  .hero-bg-video:empty {
+    display: none;
   }
 </style>
 </head>
@@ -1165,9 +1178,9 @@
     📞 +976 7011-2511 &nbsp;|&nbsp; ✉ info@misheelexpo.mn &nbsp;|&nbsp; 📍 Улаанбаатар, Монгол
   </div>
   <div class="top-lang">
-    <a href="#" class="active">МН</a>
-    <a href="#">EN</a>
-    <a href="#">中文</a>
+    <a href="#" class="active" onclick="setLang('mn');return false;" data-lang="mn">МН</a>
+    <a href="#" onclick="setLang('en');return false;" data-lang="en">EN</a>
+    <a href="#" onclick="setLang('zh');return false;" data-lang="zh">中文</a>
   </div>
 </div>
 
@@ -1184,47 +1197,47 @@
 
     <ul class="nav-menu">
       <li>
-        <a href="#">Бидний тухай <span class="arrow">▾</span></a>
+        <a href="#" data-mn="Бидний тухай ▾" data-en="About Us ▾" data-zh="关于我们 ▾">Бидний тухай <span class="arrow">▾</span></a>
         <div class="dropdown">
-          <a href="#">Бидний тухай</a>
-          <a href="#">Манай баг</a>
-          <a href="#">Түүх ба уламжлал</a>
-          <a href="#">Гэрчилгээ, дипломууд</a>
+          <a href="#" data-mn="Бидний тухай" data-en="About Us" data-zh="关于我们">Бидний тухай</a>
+          <a href="#" data-mn="Манай баг" data-en="Our Team" data-zh="我们的团队">Манай баг</a>
+          <a href="#" data-mn="Түүх ба уламжлал" data-en="History" data-zh="历史">Түүх ба уламжлал</a>
+          <a href="#" data-mn="Гэрчилгээ, дипломууд" data-en="Certifications" data-zh="证书">Гэрчилгээ, дипломууд</a>
         </div>
       </li>
       <li>
-        <a href="#events">Арга хэмжээ <span class="arrow">▾</span></a>
+        <a href="#events" data-mn="Арга хэмжээ ▾" data-en="Events ▾" data-zh="活动 ▾">Арга хэмжээ <span class="arrow">▾</span></a>
         <div class="dropdown">
-          <a href="#">Upcoming events</a>
-          <a href="#">Өнгөрсөн арга хэмжээ</a>
-          <a href="#">Олон улсын үзэсгэлэн</a>
-          <a href="#">Wedding Expo</a>
-          <a href="#">Kids Expo</a>
-          <a href="#">Horica Conference</a>
+          <a href="#" data-mn="Upcoming events" data-en="Upcoming Events" data-zh="即将举行的活动">Upcoming events</a>
+          <a href="#" data-mn="Өнгөрсөн арга хэмжээ" data-en="Past Events" data-zh="过去的活动">Өнгөрсөн арга хэмжээ</a>
+          <a href="#" data-mn="Олон улсын үзэсгэлэн" data-en="International Expo" data-zh="国际展览">Олон улсын үзэсгэлэн</a>
+          <a href="#" data-mn="Wedding Expo" data-en="Wedding Expo" data-zh="婚礼博览会">Wedding Expo</a>
+          <a href="#" data-mn="Kids Expo" data-en="Kids Expo" data-zh="儿童博览会">Kids Expo</a>
+          <a href="#" data-mn="Horica Conference" data-en="Horica Conference" data-zh="餐饮会议">Horica Conference</a>
         </div>
       </li>
       <li>
-        <a href="#venue">Талбай <span class="arrow">▾</span></a>
+        <a href="#venue" data-mn="Талбай ▾" data-en="Venue ▾" data-zh="场地 ▾">Талбай <span class="arrow">▾</span></a>
         <div class="dropdown">
-          <a href="#">Их танхим</a>
-          <a href="#">Хурлын өрөө</a>
-          <a href="#">Гадна талбай</a>
-          <a href="#">Техник хэрэгсэл</a>
+          <a href="#" data-mn="Их танхим" data-en="Main Hall" data-zh="主展厅">Их танхим</a>
+          <a href="#" data-mn="Хурлын өрөө" data-en="Conference Rooms" data-zh="会议室">Хурлын өрөө</a>
+          <a href="#" data-mn="Гадна талбай" data-en="Outdoor Space" data-zh="户外场地">Гадна талбай</a>
+          <a href="#" data-mn="Техник хэрэгсэл" data-en="Equipment" data-zh="设备">Техник хэрэгсэл</a>
         </div>
       </li>
       <li>
-        <a href="#services">Үйлчилгээ <span class="arrow">▾</span></a>
+        <a href="#services" data-mn="Үйлчилгээ ▾" data-en="Services ▾" data-zh="服务 ▾">Үйлчилгээ <span class="arrow">▾</span></a>
         <div class="dropdown">
-          <a href="#">Арга хэмжээ зохион байгуулах</a>
-          <a href="#">Стенд дизайн</a>
-          <a href="#">Маркетинг</a>
-          <a href="#">Catering</a>
+          <a href="#" data-mn="Арга хэмжээ зохион байгуулах" data-en="Event Management" data-zh="活动管理">Арга хэмжээ зохион байгуулах</a>
+          <a href="#" data-mn="Стенд дизайн" data-en="Stand Design" data-zh="展台设计">Стенд дизайн</a>
+          <a href="#" data-mn="Маркетинг" data-en="Marketing" data-zh="市场营销">Маркетинг</a>
+          <a href="#" data-mn="Catering" data-en="Catering" data-zh="餐饮服务">Catering</a>
         </div>
       </li>
-      <li><a href="#contact">Холбоо барих</a></li>
+      <li><a href="#contact" data-mn="Холбоо барих" data-en="Contact" data-zh="联系我们">Холбоо барих</a></li>
     </ul>
 
-    <a href="#contact" class="nav-cta">Оролцогч болох ↗</a>
+    <a href="#contact" class="nav-cta" data-mn="Оролцогч болох ↗" data-en="Become Exhibitor ↗" data-zh="成为参展商 ↗">Оролцогч болох ↗</a>
   </div>
 </nav>
 
@@ -1250,18 +1263,26 @@
 <section class="hero" style="padding:0;">
   <div class="hero-slides">
     <div class="hero-slide active">
-      <div class="hero-bg-fallback" style="background: linear-gradient(135deg, #0d1e2e 0%, #1a3a5c 40%, #0f4a3a 100%);">
+      <!-- VIDEO BACKGROUND: тань видео файлын нэрийг hero-bg-video src-д оруулна уу -->
+      <video class="hero-bg-video" id="heroBgVideo" autoplay muted loop playsinline
+        poster=""
+        onerror="this.style.display='none';document.getElementById('heroBgFallback').style.display='block'">
+        <!-- Өөрийн видеоны URL-ийг энд оруулна уу, жишээ нь: -->
+        <!-- <source src="https://growthdeal.github.io/misheelexpo/hero-video.mp4" type="video/mp4"> -->
+        <!-- Видео байхгүй бол автоматаар зургийн дэвсгэр харагдана -->
+      </video>
+      <div class="hero-bg-fallback" id="heroBgFallback" style="background: linear-gradient(135deg, #0d1e2e 0%, #1a3a5c 40%, #0f4a3a 100%);">
         <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,0.015) 60px,rgba(255,255,255,0.015) 61px);"></div>
       </div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <div class="hero-text">
-          <div class="hero-eyebrow">Монголын тэргүүлэх үзэсгэлэнгийн төв</div>
-          <h1>Таны бизнесийн<br><em>алтан гарц</em></h1>
-          <p class="hero-sub">2002 оноос хойш монголын арилжаа, бизнесийн уулзалтын тэргүүлэгч талбай. 40+ арга хэмжээ, 1,200+ компани жил бүр.</p>
+          <div class="hero-eyebrow" data-mn="Монголын тэргүүлэх үзэсгэлэнгийн төв" data-en="Mongolia's Leading Exhibition Centre" data-zh="蒙古领先展览中心">Монголын тэргүүлэх үзэсгэлэнгийн төв</div>
+          <h1 data-mn="Таны бизнесийн<br><em>алтан гарц</em>" data-en="Your Business's<br><em>Golden Gateway</em>" data-zh="您商业的<br><em>黄金门户</em>">Таны бизнесийн<br><em>алтан гарц</em></h1>
+          <p class="hero-sub" data-mn="2002 оноос хойш монголын арилжаа, бизнесийн уулзалтын тэргүүлэгч талбай. 40+ арга хэмжээ, 1,200+ компани жил бүр." data-en="Mongolia's leading trade and business platform since 2002. 40+ events and 1,200+ companies per year." data-zh="自2002年以来蒙古领先的贸易和商业平台。每年举办40+活动，1,200+家公司参与。">2002 оноос хойш монголын арилжаа, бизнесийн уулзалтын тэргүүлэгч талбай. 40+ арга хэмжээ, 1,200+ компани жил бүр.</p>
           <div class="hero-btns">
-            <a href="#contact" class="btn btn-gold">Оролцогч болох →</a>
-            <a href="#events" class="btn btn-outline-white">Арга хэмжээ үзэх</a>
+            <a href="#contact" class="btn btn-gold" data-mn="Оролцогч болох →" data-en="Become an Exhibitor →" data-zh="成为参展商 →">Оролцогч болох →</a>
+            <a href="#events" class="btn btn-outline-white" data-mn="Арга хэмжээ үзэх" data-en="View Events" data-zh="查看活动">Арга хэмжээ үзэх</a>
           </div>
         </div>
       </div>
@@ -1302,11 +1323,11 @@
   <div class="container">
     <div class="events-header">
       <div>
-        <div class="section-label">Арга хэмжээнүүд</div>
-        <h2>Ойрын Үзэсгэлэнгүүд</h2>
-        <p class="section-desc">2026 оны шилдэг бизнесийн арга хэмжээнүүдэд оролцож, шинэ боломж нээгтүн.</p>
+        <div class="section-label" data-mn="Арга хэмжээнүүд" data-en="Events" data-zh="活动">Арга хэмжээнүүд</div>
+        <h2 data-mn="Ойрын Үзэсгэлэнгүүд" data-en="Upcoming Exhibitions" data-zh="即将举行的展览">Ойрын Үзэсгэлэнгүүд</h2>
+        <p class="section-desc" data-mn="2026 оны шилдэг бизнесийн арга хэмжээнүүдэд оролцож, шинэ боломж нээгтүн." data-en="Join the best business events of 2026 and discover new opportunities." data-zh="参加2026年最佳商业活动，发现新机遇。">2026 оны шилдэг бизнесийн арга хэмжээнүүдэд оролцож, шинэ боломж нээгтүн.</p>
       </div>
-      <a href="#" class="view-all">Бүгдийг харах →</a>
+      <a href="#" class="view-all" data-mn="Бүгдийг харах →" data-en="View All →" data-zh="查看全部 →">Бүгдийг харах →</a>
     </div>
 
     <div class="events-grid">
@@ -1487,10 +1508,10 @@
         </div>
       </div>
       <div class="about-text">
-        <div class="section-label">Бидний тухай</div>
-        <h2>Монголын Бизнесийн Тэргүүлэгч Платформ</h2>
-        <p>Misheel Expo Center нь 2002 оноос эхлэн улс орны эдийн засгийн хөгжилд чухал үүрэг гүйцэтгэсээр ирлээ. Бид жил бүр дэлхийн 30 гаруй улсаас оролцогчдыг угтан авдаг.</p>
-        <p>Манай 2,511 м² орчимд дотоод болон гадаад талбай бүхий орчин нь таны арга хэмжээнд тохиромжтой орчин бүрдүүлэх боломжийг олгодог.</p>
+        <div class="section-label" data-mn="Бидний тухай" data-en="About Us" data-zh="关于我们">Бидний тухай</div>
+        <h2 data-mn="Монголын Бизнесийн Тэргүүлэгч Платформ" data-en="Mongolia's Leading Business Platform" data-zh="蒙古领先商业平台">Монголын Бизнесийн Тэргүүлэгч Платформ</h2>
+        <p data-mn="Misheel Expo Center нь 2002 оноос эхлэн улс орны эдийн засгийн хөгжилд чухал үүрэг гүйцэтгэсээр ирлээ. Бид жил бүр дэлхийн 30 гаруй улсаас оролцогчдыг угтан авдаг." data-en="Misheel Expo Center has played a vital role in Mongolia's economic development since 2002. We welcome participants from over 30 countries annually." data-zh="Misheel展览中心自2002年起在蒙古国的经济发展中发挥了重要作用。我们每年接待来自30多个国家的参与者。">Misheel Expo Center нь 2002 оноос эхлэн улс орны эдийн засгийн хөгжилд чухал үүрэг гүйцэтгэсээр ирлээ. Бид жил бүр дэлхийн 30 гаруй улсаас оролцогчдыг угтан авдаг.</p>
+        <p data-mn="Манай 2,511 м² орчимд дотоод болон гадаад талбай бүхий орчин нь таны арга хэмжээнд тохиромжтой орчин бүрдүүлэх боломжийг олгодог." data-en="Our 2,511 m² facility with indoor and outdoor spaces provides the perfect environment for your event." data-zh="我们拥有2511平方米的室内外场地，为您的活动提供完美环境。">Манай 2,511 м² орчимд дотоод болон гадаад талбай бүхий орчин нь таны арга хэмжээнд тохиромжтой орчин бүрдүүлэх боломжийг олгодог.</p>
         <div class="about-features">
           <div class="about-feat">
             <div class="about-feat-icon">🏛️</div>
@@ -1532,9 +1553,9 @@
   <div class="container">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;">
       <div>
-        <div class="section-label">Манай үйлчилгээ</div>
-        <h2>Таны Хэрэгцээнд Нийцсэн</h2>
-        <p class="section-desc">Санаанаас эхлэн биелэл хүртэл бүрэн дэмжлэг. Мэргэжлийн баг таны арга хэмжээг амжилттай болгоход тусална.</p>
+        <div class="section-label" data-mn="Манай үйлчилгээ" data-en="Our Services" data-zh="我们的服务">Манай үйлчилгээ</div>
+        <h2 data-mn="Таны Хэрэгцээнд Нийцсэн" data-en="Tailored to Your Needs" data-zh="满足您的需求">Таны Хэрэгцээнд Нийцсэн</h2>
+        <p class="section-desc" data-mn="Санаанаас эхлэн биелэл хүртэл бүрэн дэмжлэг. Мэргэжлийн баг таны арга хэмжээг амжилттай болгоход тусална." data-en="Full support from concept to execution. Our professional team ensures your event is a success." data-zh="从概念到执行的全面支持。我们的专业团队确保您的活动取得成功。">Санаанаас эхлэн биелэл хүртэл бүрэн дэмжлэг. Мэргэжлийн баг таны арга хэмжээг амжилттай болгоход тусална.</p>
       </div>
     </div>
     <div class="services-grid">
@@ -1623,9 +1644,9 @@
 <!-- CTA -->
 <section class="cta-section">
   <div class="container">
-    <div class="section-label">Хамтран ажиллая</div>
-    <h2>Таны Дараагийн Амжилтыг<br>Хамт Бүтээцгээе</h2>
-    <p>Мишээл Экспо-д оролцогч болж, 100,000+ зочдод өөрийн бизнесийг танилцуулаарай.</p>
+    <div class="section-label" data-mn="Хамтран ажиллая" data-en="Work With Us" data-zh="与我们合作">Хамтран ажиллая</div>
+    <h2 data-mn="Таны Дараагийн Амжилтыг<br>Хамт Бүтээцгээе" data-en="Let's Build Your Next<br>Success Together" data-zh="让我们共同创造您的<br>下一个成功">Таны Дараагийн Амжилтыг<br>Хамт Бүтээцгээе</h2>
+    <p data-mn="Мишээл Экспо-д оролцогч болж, 100,000+ зочдод өөрийн бизнесийг танилцуулаарай." data-en="Become an exhibitor at Misheel Expo and showcase your business to 100,000+ visitors." data-zh="成为Misheel展览中心的参展商，向100,000多名参观者展示您的业务。">Мишээл Экспо-д оролцогч болж, 100,000+ зочдод өөрийн бизнесийг танилцуулаарай.</p>
     <div class="cta-btns">
       <a href="#contact" class="btn btn-white">Оролцогч болох →</a>
       <a href="#events" class="btn btn-outline-dark">Арга хэмжээ үзэх</a>
@@ -1638,9 +1659,9 @@
   <div class="container">
     <div class="contact-grid">
       <div class="contact-info">
-        <div class="section-label">Холбоо барих</div>
-        <h2>Бидэнтэй Холбоо Барих</h2>
-        <p class="section-desc" style="margin-bottom:40px;">Оролцогч болох, талбай түрээслэх эсвэл үйлчилгээний талаар асуух бол манайхтай холбоо барина уу.</p>
+        <div class="section-label" data-mn="Холбоо барих" data-en="Contact" data-zh="联系我们">Холбоо барих</div>
+        <h2 data-mn="Бидэнтэй Холбоо Барих" data-en="Get In Touch" data-zh="与我们联系">Бидэнтэй Холбоо Барих</h2>
+        <p class="section-desc" style="margin-bottom:40px;" data-mn="Оролцогч болох, талбай түрээслэх эсвэл үйлчилгээний талаар асуух бол манайхтай холбоо барина уу." data-en="Whether you want to exhibit, rent our venue, or ask about our services — we're here to help." data-zh="无论您想参展、租用场地还是咨询我们的服务，我们随时为您服务。">Оролцогч болох, талбай түрээслэх эсвэл үйлчилгээний талаар асуух бол манайхтай холбоо барина уу.</p>
 
         <div class="contact-block">
           <div class="contact-icon">📍</div>
@@ -1768,10 +1789,159 @@
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-  // Scroll top button
+  // ═══════════════════════════════════════════
+  // LANGUAGE SYSTEM
+  // ═══════════════════════════════════════════
+  const translations = {
+    mn: {
+      // Nav
+      'nav-about': 'Бидний тухай',
+      'nav-events': 'Арга хэмжээ',
+      'nav-venue': 'Талбай',
+      'nav-services': 'Үйлчилгээ',
+      'nav-contact': 'Холбоо барих',
+      'nav-cta': 'Оролцогч болох ↗',
+      // Nav dropdowns
+      'dd-about-1': 'Бидний тухай', 'dd-about-2': 'Манай баг', 'dd-about-3': 'Түүх ба уламжлал', 'dd-about-4': 'Гэрчилгээ, дипломууд',
+      'dd-events-1': 'Upcoming events', 'dd-events-2': 'Өнгөрсөн арга хэмжээ', 'dd-events-3': 'Олон улсын үзэсгэлэн', 'dd-events-4': 'Wedding Expo', 'dd-events-5': 'Kids Expo', 'dd-events-6': 'Horica Conference',
+      'dd-venue-1': 'Их танхим', 'dd-venue-2': 'Хурлын өрөө', 'dd-venue-3': 'Гадна талбай', 'dd-venue-4': 'Техник хэрэгсэл',
+      'dd-svc-1': 'Арга хэмжээ зохион байгуулах', 'dd-svc-2': 'Стенд дизайн', 'dd-svc-3': 'Маркетинг', 'dd-svc-4': 'Catering',
+      // Stats
+      'stat-visitors': 'Жилийн зочид', 'stat-events': 'Арга хэмжээ жил бүр', 'stat-companies': 'Оролцогч компани', 'stat-area': 'Үзэсгэлэнгийн талбай',
+      // Events section
+      'events-label': 'Арга хэмжээнүүд', 'events-h2': 'Ойрын Үзэсгэлэнгүүд',
+      'events-desc': '2026 оны шилдэг бизнесийн арга хэмжээнүүдэд оролцож, шинэ боломж нээгтүн.',
+      'events-viewall': 'Бүгдийг харах →',
+      // About
+      'about-label': 'Бидний тухай', 'about-h2': 'Монголын Бизнесийн Тэргүүлэгч Платформ',
+      'about-p1': 'Misheel Expo Center нь 2002 оноос эхлэн улс орны эдийн засгийн хөгжилд чухал үүрэг гүйцэтгэсээр ирлээ. Бид жил бүр дэлхийн 30 гаруй улсаас оролцогчдыг угтан авдаг.',
+      'about-p2': 'Манай 2,511 м² орчимд дотоод болон гадаад талбай бүхий орчин нь таны арга хэмжээнд тохиромжтой орчин бүрдүүлэх боломжийг олгодог.',
+      'about-btn': 'Дэлгэрэнгүй мэдэх →',
+      // Services
+      'svc-label': 'Манай үйлчилгээ', 'svc-h2': 'Таны Хэрэгцээнд Нийцсэн',
+      'svc-desc': 'Санаанаас эхлэн биелэл хүртэл бүрэн дэмжлэг. Мэргэжлийн баг таны арга хэмжээг амжилттай болгоход тусална.',
+      // Venue
+      'venue-label': 'Манай Талбай', 'venue-h2': 'Дэлхийн Стандартын Орон Зай',
+      'venue-desc': 'Олон улсын стандарттай дэд бүтэц, орчин үеийн технологийн тоног төхөөрөмжтэй 2,511 м² талбай.',
+      'venue-btn': 'Талбай захиалах →',
+      // CTA
+      'cta-label': 'Хамтран ажиллая', 'cta-h2': 'Таны Дараагийн Амжилтыг Хамт Бүтээцгээе',
+      'cta-p': 'Мишээл Экспо-д оролцогч болж, 100,000+ зочдод өөрийн бизнесийг танилцуулаарай.',
+      'cta-btn1': 'Оролцогч болох →', 'cta-btn2': 'Арга хэмжээ үзэх',
+      // Contact
+      'contact-label': 'Холбоо барих', 'contact-h2': 'Бидэнтэй Холбоо Барих',
+      'contact-desc': 'Оролцогч болох, талбай түрээслэх эсвэл үйлчилгээний талаар асуух бол манайхтай холбоо барина уу.',
+      'form-h3': 'Холбоо барих хүсэлт',
+      'form-submit': 'Илгээх →',
+    },
+    en: {
+      'nav-about': 'About Us', 'nav-events': 'Events', 'nav-venue': 'Venue', 'nav-services': 'Services', 'nav-contact': 'Contact', 'nav-cta': 'Become Exhibitor ↗',
+      'dd-about-1': 'About Us', 'dd-about-2': 'Our Team', 'dd-about-3': 'History', 'dd-about-4': 'Certifications',
+      'dd-events-1': 'Upcoming Events', 'dd-events-2': 'Past Events', 'dd-events-3': 'International Expo', 'dd-events-4': 'Wedding Expo', 'dd-events-5': 'Kids Expo', 'dd-events-6': 'Horica Conference',
+      'dd-venue-1': 'Main Hall', 'dd-venue-2': 'Conference Rooms', 'dd-venue-3': 'Outdoor Space', 'dd-venue-4': 'Equipment',
+      'dd-svc-1': 'Event Management', 'dd-svc-2': 'Stand Design', 'dd-svc-3': 'Marketing', 'dd-svc-4': 'Catering',
+      'stat-visitors': 'Annual Visitors', 'stat-events': 'Events per Year', 'stat-companies': 'Exhibiting Companies', 'stat-area': 'Exhibition Area',
+      'events-label': 'Events', 'events-h2': 'Upcoming Exhibitions',
+      'events-desc': 'Join the best business events of 2026 and discover new opportunities.',
+      'events-viewall': 'View All →',
+      'about-label': 'About Us', 'about-h2': "Mongolia's Leading Business Platform",
+      'about-p1': 'Misheel Expo Center has played a vital role in Mongolia\'s economic development since 2002. We welcome participants from over 30 countries annually.',
+      'about-p2': 'Our 2,511 m² facility with indoor and outdoor spaces provides the perfect environment for your event.',
+      'about-btn': 'Learn More →',
+      'svc-label': 'Our Services', 'svc-h2': 'Tailored to Your Needs',
+      'svc-desc': 'Full support from concept to execution. Our professional team ensures your event is a success.',
+      'venue-label': 'Our Venue', 'venue-h2': 'World-Class Event Space',
+      'venue-desc': 'International-standard infrastructure with modern technology across 2,511 m².',
+      'venue-btn': 'Book Venue →',
+      'cta-label': 'Work With Us', 'cta-h2': 'Let\'s Build Your Next Success Together',
+      'cta-p': 'Become an exhibitor at Misheel Expo and showcase your business to 100,000+ visitors.',
+      'cta-btn1': 'Become Exhibitor →', 'cta-btn2': 'View Events',
+      'contact-label': 'Contact', 'contact-h2': 'Get In Touch',
+      'contact-desc': 'Whether you want to exhibit, rent our venue, or ask about our services — we\'re here to help.',
+      'form-h3': 'Send Us a Message',
+      'form-submit': 'Send →',
+    },
+    zh: {
+      'nav-about': '关于我们', 'nav-events': '活动', 'nav-venue': '场地', 'nav-services': '服务', 'nav-contact': '联系我们', 'nav-cta': '成为参展商 ↗',
+      'dd-about-1': '关于我们', 'dd-about-2': '我们的团队', 'dd-about-3': '历史', 'dd-about-4': '证书',
+      'dd-events-1': '即将举行的活动', 'dd-events-2': '过去的活动', 'dd-events-3': '国际展览', 'dd-events-4': '婚礼博览会', 'dd-events-5': '儿童博览会', 'dd-events-6': '餐饮会议',
+      'dd-venue-1': '主展厅', 'dd-venue-2': '会议室', 'dd-venue-3': '户外场地', 'dd-venue-4': '设备',
+      'dd-svc-1': '活动管理', 'dd-svc-2': '展台设计', 'dd-svc-3': '市场营销', 'dd-svc-4': '餐饮服务',
+      'stat-visitors': '年度参观者', 'stat-events': '每年活动', 'stat-companies': '参展公司', 'stat-area': '展览面积',
+      'events-label': '活动', 'events-h2': '即将举行的展览',
+      'events-desc': '参加2026年最佳商业活动，发现新机遇。',
+      'events-viewall': '查看全部 →',
+      'about-label': '关于我们', 'about-h2': '蒙古领先商业平台',
+      'about-p1': 'Misheel展览中心自2002年起在蒙古国的经济发展中发挥了重要作用。我们每年接待来自30多个国家的参与者。',
+      'about-p2': '我们拥有2511平方米的室内外场地，为您的活动提供完美环境。',
+      'about-btn': '了解更多 →',
+      'svc-label': '我们的服务', 'svc-h2': '满足您的需求',
+      'svc-desc': '从概念到执行的全面支持。我们的专业团队确保您的活动取得成功。',
+      'venue-label': '我们的场地', 'venue-h2': '世界级活动场地',
+      'venue-desc': '国际标准基础设施，配备现代技术，总面积2,511平方米。',
+      'venue-btn': '预订场地 →',
+      'cta-label': '与我们合作', 'cta-h2': '让我们共同创造您的下一个成功',
+      'cta-p': '成为Misheel展览中心的参展商，向100,000多名参观者展示您的业务。',
+      'cta-btn1': '成为参展商 →', 'cta-btn2': '查看活动',
+      'contact-label': '联系我们', 'contact-h2': '与我们联系',
+      'contact-desc': '无论您想参展、租用场地还是咨询我们的服务，我们随时为您服务。',
+      'form-h3': '发送消息',
+      'form-submit': '发送 →',
+    }
+  };
+
+  let currentLang = 'mn';
+
+  function setLang(lang) {
+    currentLang = lang;
+    const t = translations[lang];
+
+    // Update active button
+    document.querySelectorAll('.top-lang a').forEach(a => {
+      a.classList.toggle('active', a.dataset.lang === lang);
+    });
+
+    // Update all elements with data-key
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const key = el.dataset.key;
+      if (t[key]) el.innerHTML = t[key];
+    });
+
+    // Update data-mn/en/zh elements
+    document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+      el.innerHTML = el.dataset[lang];
+    });
+
+    // Save preference
+    try { localStorage.setItem('lang', lang); } catch(e) {}
+  }
+
+  // Load saved language on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    try {
+      const saved = localStorage.getItem('lang');
+      if (saved && translations[saved]) setLang(saved);
+    } catch(e) {}
+
+    // VIDEO: check if video has sources, else show fallback
+    const vid = document.getElementById('heroBgVideo');
+    const fallback = document.getElementById('heroBgFallback');
+    if (vid && vid.querySelectorAll('source').length === 0) {
+      vid.style.display = 'none';
+      fallback.style.display = 'block';
+    }
+    vid && vid.addEventListener('error', () => {
+      vid.style.display = 'none';
+      fallback.style.display = 'block';
+    });
+  });
+
+  // ═══════════════════════════════════════════
+  // SCROLL TO TOP
+  // ═══════════════════════════════════════════
   window.addEventListener('scroll', () => {
     const btn = document.getElementById('scrollTop');
-    btn.classList.toggle('visible', window.scrollY > 400);
+    if (btn) btn.classList.toggle('visible', window.scrollY > 400);
   });
 
   // Hero slide dots interaction
@@ -1779,14 +1949,6 @@
     dot.addEventListener('click', () => {
       document.querySelectorAll('.hero-dot').forEach(d => d.classList.remove('active'));
       dot.classList.add('active');
-    });
-  });
-
-  // Smooth hover on event cards
-  document.querySelectorAll('.event-card').forEach(card => {
-    card.addEventListener('click', e => {
-      if (e.target.classList.contains('event-register')) return;
-      e.preventDefault();
     });
   });
 </script>
