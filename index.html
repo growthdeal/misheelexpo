@@ -10,20 +10,20 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --primary: #8B6508;
-    --accent: #B8860B;
-    --accent2: #C8960E;
-    --dark: #3a2e00;
-    --light: #F8F2DC;
+    --primary: #111827;
+    --accent: #c41e3a;
+    --accent2: #e8293c;
+    --dark: #111827;
+    --light: #f5f5f7;
     --white: #ffffff;
-    --gray: #7a6f50;
-    --border: #f0e8c8;
+    --gray: #6b7280;
+    --border: #e5e7eb;
     --red: #c0392b;
-    --topbar-bg: #E8D06A;
-    --topbar-text: #3a2e00;
+    --topbar-bg: #111827;
+    --topbar-text: #ffffff;
     --nav-bg: #ffffff;
-    --stats-bg: #F0E8B0;
-    --footer-bg: #2a2200;
+    --stats-bg: #f5f5f7;
+    --footer-bg: #0d1117;
   }
 
   html { scroll-behavior: smooth; }
@@ -46,8 +46,8 @@
     align-items: center;
   }
 
-  .top-bar a { color: var(--topbar-text); text-decoration: none; }
-  .top-bar a:hover { color: var(--primary); }
+  .top-bar a { color: rgba(255,255,255,0.75); text-decoration: none; }
+  .top-bar a:hover { color: #ffffff; }
 
   .top-lang { display: flex; gap: 16px; }
   .top-lang a { padding: 2px 8px; border: 1px solid rgba(0,0,0,0.15); border-radius: 2px; }
@@ -122,7 +122,7 @@
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
-    color: #3a2e00;
+    color: #111827;
     letter-spacing: 0.3px;
     border-bottom: 3px solid transparent;
     transition: all 0.2s;
@@ -193,7 +193,7 @@
     transition: background 0.2s;
   }
 
-  .nav-cta:hover { background: #8A6408 !important; }
+  .nav-cta:hover { background: #a01830 !important; }
 
   /* ─── HERO ─── */
   .hero {
@@ -224,7 +224,7 @@
   .hero-bg-fallback {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #B8860B 0%, #8B6008 60%, #B8860B 100%);
+    background: linear-gradient(135deg, #111827 0%, #1e2d3d 60%, #111827 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -260,7 +260,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--accent2);
+    color: rgba(255,255,255,0.65);
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 3px;
@@ -272,7 +272,7 @@
     content: '';
     width: 30px;
     height: 2px;
-    background: var(--accent2);
+    background: rgba(255,255,255,0.4);
   }
 
   .hero h1 {
@@ -313,7 +313,7 @@
   }
 
   .btn-gold { background: var(--accent); color: white; }
-  .btn-gold:hover { background: #8A6408; transform: translateY(-2px); }
+  .btn-gold:hover { background: #a01830; transform: translateY(-2px); }
 
   .btn-outline-white {
     background: transparent;
@@ -343,14 +343,15 @@
     transition: all 0.2s;
   }
 
-  .hero-dot.active { background: var(--accent2); width: 24px; border-radius: 4px; }
+  .hero-dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
 
   /* ─── STATS BAR ─── */
   .stats-bar {
-    background: var(--stats-bg);
+    background: var(--white);
     padding: 0;
-    border-top: 3px solid var(--accent);
+    border-top: 4px solid var(--accent);
     border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
   }
 
   .stats-inner {
@@ -467,17 +468,17 @@
 
   .event-img {
     height: 200px;
-    background: linear-gradient(135deg, #B8860B, #9A7010);
+    background: linear-gradient(135deg, #111827, #1e293b);
     position: relative;
     overflow: hidden;
   }
 
-  .event-img-1 { background: linear-gradient(135deg, #B8860B 0%, #8B6008 100%); }
-  .event-img-2 { background: linear-gradient(135deg, #8A6008 0%, #9a6010 100%); }
-  .event-img-3 { background: linear-gradient(135deg, #9A7010 0%, #e0b020 100%); }
-  .event-img-4 { background: linear-gradient(135deg, #A08020 0%, #B89820 100%); }
-  .event-img-5 { background: linear-gradient(135deg, #B89010 0%, #906010 100%); }
-  .event-img-6 { background: linear-gradient(135deg, #886010 0%, #886010 100%); }
+  .event-img-1 { background: linear-gradient(135deg, #111827 0%, #1e293b 100%); }
+  .event-img-2 { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+  .event-img-3 { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+  .event-img-4 { background: linear-gradient(135deg, #111827 0%, #1f2937 100%); }
+  .event-img-5 { background: linear-gradient(135deg, #1f2937 0%, #111827 100%); }
+  .event-img-6 { background: linear-gradient(135deg, #0d1117 0%, #1e293b 100%); }
 
   .event-img-text {
     position: absolute;
@@ -631,7 +632,7 @@
   .about-main-img {
     width: 100%;
     aspect-ratio: 4/3;
-    background: linear-gradient(135deg, #f9f2d0, #f0e8c8);
+    background: linear-gradient(135deg, #f0f4f8, #e8edf2);
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -646,7 +647,7 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 36px;
     font-weight: 800;
-    color: rgba(180,140,0,0.15);
+    color: rgba(17,24,39,0.1);
     text-align: center;
     letter-spacing: 4px;
   }
@@ -658,8 +659,8 @@
       45deg,
       transparent,
       transparent 30px,
-      rgba(200,150,30,0.05) 30px,
-      rgba(200,150,30,0.05) 31px
+      rgba(17,24,39,0.04) 30px,
+      rgba(17,24,39,0.04) 31px
     );
   }
 
@@ -677,7 +678,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    box-shadow: 0 8px 24px rgba(200,150,30,0.35);
+    box-shadow: 0 8px 24px rgba(196,30,58,0.3);
   }
 
   .about-badge .num {
@@ -710,7 +711,7 @@
 
   .about-feat-icon {
     width: 40px; height: 40px;
-    background: rgba(200,150,30,0.1);
+    background: rgba(196,30,58,0.08);
     border-radius: 3px;
     display: flex;
     align-items: center;
@@ -724,7 +725,7 @@
   .about-feat-text span { color: var(--gray); font-size: 12px; }
 
   /* ─── SERVICES ─── */
-  .services-section { background: var(--stats-bg); }
+  .services-section { background: var(--light); }
   .services-section .section-label { color: var(--primary); }
   .services-section .section-label::before { background: var(--primary); }
   .services-section h2 { color: var(--primary); }
@@ -746,8 +747,8 @@
   }
 
   .service-card:hover {
-    background: rgba(212,160,23,0.15);
-    border-color: rgba(212,160,23,0.4);
+    background: rgba(196,30,58,0.05);
+    border-color: rgba(196,30,58,0.25);
     transform: translateY(-4px);
   }
 
@@ -755,7 +756,7 @@
     font-family: 'Montserrat', sans-serif; font-weight: 800;
     font-size: 48px;
     font-weight: 700;
-    color: rgba(200,150,30,0.2);
+    color: rgba(17,24,39,0.1);
     line-height: 1;
     margin-bottom: 20px;
   }
@@ -852,9 +853,9 @@
     text-transform: uppercase;
   }
 
-  .venue-img-1 { background: linear-gradient(135deg, #B8860B, #9A7010); grid-row: span 2; }
-  .venue-img-2 { background: linear-gradient(135deg, #A88010, #8B6008); }
-  .venue-img-3 { background: linear-gradient(135deg, #886010, #B89010); }
+  .venue-img-1 { background: linear-gradient(135deg, #111827, #1e293b); grid-row: span 2; }
+  .venue-img-2 { background: linear-gradient(135deg, #0f172a, #1e293b); }
+  .venue-img-3 { background: linear-gradient(135deg, #1e293b, #0f172a); }
 
   /* ─── EXHIBITORS ─── */
   .exhibitors-section { background: var(--light); }
@@ -904,7 +905,7 @@
 
   /* ─── CTA ─── */
   .cta-section {
-    background: var(--accent);
+    background: linear-gradient(135deg, #111827 0%, #c41e3a 100%);
     padding: 80px 40px;
     text-align: center;
   }
@@ -947,14 +948,14 @@
 
   .contact-icon {
     width: 48px; height: 48px;
-    background: rgba(200,150,30,0.1);
+    background: rgba(196,30,58,0.08);
     border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
     flex-shrink: 0;
-    border: 1px solid rgba(200,150,30,0.2);
+    border: 1px solid rgba(196,30,58,0.15);
   }
 
   .contact-block h4 {
@@ -1214,42 +1215,16 @@
 
     <ul class="nav-menu">
       <li>
-        <a href="#" data-mn="Бидний тухай ▾" data-en="About Us ▾" data-zh="关于我们 ▾">Бидний тухай <span class="arrow">▾</span></a>
-        <div class="dropdown">
-          <a href="#" data-mn="Бидний тухай" data-en="About Us" data-zh="关于我们">Бидний тухай</a>
-          <a href="#" data-mn="Манай баг" data-en="Our Team" data-zh="我们的团队">Манай баг</a>
-          <a href="#" data-mn="Түүх ба уламжлал" data-en="History" data-zh="历史">Түүх ба уламжлал</a>
-          <a href="#" data-mn="Гэрчилгээ, дипломууд" data-en="Certifications" data-zh="证书">Гэрчилгээ, дипломууд</a>
-        </div>
+        <a href="#" data-mn="Бидний тухай" data-en="About Us" data-zh="关于我们">Бидний тухай</a>
       </li>
       <li>
-        <a href="#events" data-mn="Арга хэмжээ ▾" data-en="Events ▾" data-zh="活动 ▾">Арга хэмжээ <span class="arrow">▾</span></a>
-        <div class="dropdown">
-          <a href="#" data-mn="Upcoming events" data-en="Upcoming Events" data-zh="即将举行的活动">Upcoming events</a>
-          <a href="#" data-mn="Өнгөрсөн арга хэмжээ" data-en="Past Events" data-zh="过去的活动">Өнгөрсөн арга хэмжээ</a>
-          <a href="#" data-mn="Олон улсын үзэсгэлэн" data-en="International Expo" data-zh="国际展览">Олон улсын үзэсгэлэн</a>
-          <a href="#" data-mn="Wedding Expo" data-en="Wedding Expo" data-zh="婚礼博览会">Wedding Expo</a>
-          <a href="#" data-mn="Kids Expo" data-en="Kids Expo" data-zh="儿童博览会">Kids Expo</a>
-          <a href="#" data-mn="Horica Conference" data-en="Horica Conference" data-zh="餐饮会议">Horica Conference</a>
-        </div>
+        <a href="#events" data-mn="Арга хэмжээ" data-en="Events" data-zh="活动">Арга хэмжээ</a>
       </li>
       <li>
-        <a href="#venue" data-mn="Талбай ▾" data-en="Venue ▾" data-zh="场地 ▾">Талбай <span class="arrow">▾</span></a>
-        <div class="dropdown">
-          <a href="#" data-mn="Их танхим" data-en="Main Hall" data-zh="主展厅">Их танхим</a>
-          <a href="#" data-mn="Хурлын өрөө" data-en="Conference Rooms" data-zh="会议室">Хурлын өрөө</a>
-          <a href="#" data-mn="Гадна талбай" data-en="Outdoor Space" data-zh="户外场地">Гадна талбай</a>
-          <a href="#" data-mn="Техник хэрэгсэл" data-en="Equipment" data-zh="设备">Техник хэрэгсэл</a>
-        </div>
+        <a href="#venue" data-mn="Талбай" data-en="Venue" data-zh="场地">Талбай</a>
       </li>
       <li>
-        <a href="#services" data-mn="Үйлчилгээ ▾" data-en="Services ▾" data-zh="服务 ▾">Үйлчилгээ <span class="arrow">▾</span></a>
-        <div class="dropdown">
-          <a href="#" data-mn="Арга хэмжээ зохион байгуулах" data-en="Event Management" data-zh="活动管理">Арга хэмжээ зохион байгуулах</a>
-          <a href="#" data-mn="Стенд дизайн" data-en="Stand Design" data-zh="展台设计">Стенд дизайн</a>
-          <a href="#" data-mn="Маркетинг" data-en="Marketing" data-zh="市场营销">Маркетинг</a>
-          <a href="#" data-mn="Catering" data-en="Catering" data-zh="餐饮服务">Catering</a>
-        </div>
+        <a href="#services" data-mn="Үйлчилгээ" data-en="Services" data-zh="服务">Үйлчилгээ</a>
       </li>
       <li><a href="#contact" data-mn="Холбоо барих" data-en="Contact" data-zh="联系我们">Холбоо барих</a></li>
     </ul>
@@ -1283,7 +1258,7 @@
       <!-- ═══ YOUTUBE BACKGROUND VIDEO ═══ -->
       <!-- 🎬 YouTube видео ID солихдоо доорх 2 газрын "MYXT5-HOK40"-г өөрчлөхөд л болно -->
       <div id="heroBgVideo" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden;"></div>
-      <div class="hero-bg-fallback" id="heroBgFallback" style="background:linear-gradient(135deg,#B8860B 0%,#8B6008 40%,#C8960E 100%);display:block;">
+      <div class="hero-bg-fallback" id="heroBgFallback" style="background:linear-gradient(135deg,#111827 0%,#1e2d3d 40%,#0f2027 100%);display:block;">
         <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,0.04) 60px,rgba(255,255,255,0.04) 61px);"></div>
       </div>
       <div class="hero-overlay"></div>
@@ -1346,8 +1321,8 @@
       <!-- Event 1 -->
       <a href="#" class="event-card">
         <div class="event-img event-img-1" style="position:relative;">
-          <!-- 🖼️ АРГА ХЭМЖЭЭ 1 ЗУРАГ: src="..." дотор зурагнийхаа URL-г оруулна -->
-          <img class="event-bg-img" src="" alt="" onerror="this.style.display='none'" onload="this.style.display='block'">
+          <!-- 🖼️ АРГА ХЭМЖЭЭ 1: EVENT_IMAGES.event1 дотор URL оруулна -->
+          <img class="event-bg-img event1-img" src="" alt="" onerror="this.style.display='none'" onload="this.style.display='block'">
           <div class="event-img-text">EXPO 2026</div>
           <div class="event-date-badge"><span class="day">15</span><span class="month">May</span></div>
           <div class="event-cat">Олон улсын</div>
@@ -1374,8 +1349,8 @@
       <!-- Event 2 -->
       <a href="#" class="event-card">
         <div class="event-img event-img-2" style="position:relative;">
-          <!-- 🖼️ АРГА ХЭМЖЭЭ 2 ЗУРАГ: src="..." дотор зурагнийхаа URL-г оруулна -->
-          <img class="event-bg-img" src="" alt="" onerror="this.style.display='none'" onload="this.style.display='block'">
+          <!-- 🖼️ АРГА ХЭМЖЭЭ 2: EVENT_IMAGES.event2 дотор URL оруулна -->
+          <img class="event-bg-img event2-img" src="" alt="" onerror="this.style.display='none'" onload="this.style.display='block'">
           <div class="event-img-text">WEDDING</div>
           <div class="event-date-badge"><span class="day">08</span><span class="month">Jun</span></div>
           <div class="event-cat">Wedding</div>
@@ -1402,8 +1377,8 @@
       <!-- Event 3 -->
       <a href="#" class="event-card">
         <div class="event-img event-img-3" style="position:relative;">
-          <!-- 🖼️ АРГА ХЭМЖЭЭ 3 ЗУРАГ: src="..." дотор зурагнийхаа URL-г оруулна -->
-          <img class="event-bg-img" src="" alt="" onerror="this.style.display='none'" onload="this.style.display='block'">
+          <!-- 🖼️ АРГА ХЭМЖЭЭ 3: EVENT_IMAGES.event3 дотор URL оруулна -->
+          <img class="event-bg-img event3-img" src="" alt="" onerror="this.style.display='none'" onload="this.style.display='block'">
           <div class="event-img-text">KIDS</div>
           <div class="event-date-badge"><span class="day">20</span><span class="month">Jun</span></div>
           <div class="event-cat">Хүүхэд</div>
@@ -1430,8 +1405,8 @@
       <!-- Event 4 -->
       <a href="#" class="event-card">
         <div class="event-img event-img-4" style="position:relative;">
-          <!-- 🖼️ АРГА ХЭМЖЭЭ 4 ЗУРАГ: src="..." дотор зурагнийхаа URL-г оруулна -->
-          <img class="event-bg-img" src="" alt="" onerror="this.style.display='none'" onload="this.style.display='block'">
+          <!-- 🖼️ АРГА ХЭМЖЭЭ 4: EVENT_IMAGES.event4 дотор URL оруулна -->
+          <img class="event-bg-img event4-img" src="" alt="" onerror="this.style.display='none'" onload="this.style.display='block'">
           <div class="event-img-text">HORICA</div>
           <div class="event-date-badge"><span class="day">10</span><span class="month">Jul</span></div>
           <div class="event-cat">Хоол & Зочлол</div>
@@ -1458,8 +1433,8 @@
       <!-- Event 5 -->
       <a href="#" class="event-card">
         <div class="event-img event-img-5" style="position:relative;">
-          <!-- 🖼️ АРГА ХЭМЖЭЭ 5 ЗУРАГ: src="..." дотор зурагнийхаа URL-г оруулна -->
-          <img class="event-bg-img" src="" alt="" onerror="this.style.display='none'" onload="this.style.display='block'">
+          <!-- 🖼️ АРГА ХЭМЖЭЭ 5: EVENT_IMAGES.event5 дотор URL оруулна -->
+          <img class="event-bg-img event5-img" src="" alt="" onerror="this.style.display='none'" onload="this.style.display='block'">
           <div class="event-img-text">BEAUTY</div>
           <div class="event-date-badge"><span class="day">25</span><span class="month">Jul</span></div>
           <div class="event-cat">Гоо сайхан</div>
@@ -1486,8 +1461,8 @@
       <!-- Event 6 -->
       <a href="#" class="event-card">
         <div class="event-img event-img-6" style="position:relative;">
-          <!-- 🖼️ АРГА ХЭМЖЭЭ 6 ЗУРАГ: src="..." дотор зурагнийхаа URL-г оруулна -->
-          <img class="event-bg-img" src="" alt="" onerror="this.style.display='none'" onload="this.style.display='block'">
+          <!-- 🖼️ АРГА ХЭМЖЭЭ 6: EVENT_IMAGES.event6 дотор URL оруулна -->
+          <img class="event-bg-img event6-img" src="" alt="" onerror="this.style.display='none'" onload="this.style.display='block'">
           <div class="event-img-text">NAADAM</div>
           <div class="event-date-badge"><span class="day">01</span><span class="month">Aug</span></div>
           <div class="event-cat">Аялал жуулчлал</div>
@@ -1813,6 +1788,33 @@
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
+  // ╔══════════════════════════════════════════════════════════╗
+  // ║   🖼️  АРГА ХЭМЖЭЭНИЙ ЗУРГИЙГ ЭНД СОЛИНО              ║
+  // ╠══════════════════════════════════════════════════════════╣
+  // ║  event1..event6 дотор зурагны URL-ийг оруулна.         ║
+  // ║  Хоосон үлдвэл харанхуй фон харагдана.                 ║
+  // ╚══════════════════════════════════════════════════════════╝
+  const EVENT_IMAGES = {
+    event1: "",  // Олон Улсын Бизнесийн Үзэсгэлэн
+    event2: "",  // Wedding Expo
+    event3: "",  // Kids Expo
+    event4: "",  // Horica Conference
+    event5: "",  // Health & Beauty Expo
+    event6: "",  // Naadam & Travel Expo
+  };
+
+  // Auto-inject images
+  window.addEventListener('DOMContentLoaded', function() {
+    Object.entries(EVENT_IMAGES).forEach(([key, url]) => {
+      if (url) {
+        document.querySelectorAll('.' + key + '-img').forEach(img => {
+          img.src = url;
+          img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;';
+        });
+      }
+    });
+  });
+
   // ═══════════════════════════════════════════
   // LANGUAGE SYSTEM
   // ═══════════════════════════════════════════
