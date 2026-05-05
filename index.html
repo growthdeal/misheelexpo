@@ -1235,7 +1235,7 @@
 
 <!-- TICKER -->
 <div class="ticker-wrap">
-  <div class="ticker">
+  <div class="ticker" id="tickerInner">
     <span class="ticker-item">✦ Олон улсын үзэсгэлэн 2026</span>
     <span class="ticker-item">✦ Wedding Expo — 5-р сард</span>
     <span class="ticker-item">✦ Kids Expo — 6-р сард</span>
@@ -1264,9 +1264,9 @@
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <div class="hero-text">
-          <div class="hero-eyebrow" data-mn="Монголын тэргүүлэх үзэсгэлэнгийн төв" data-en="Mongolia's Leading Exhibition Centre" data-zh="蒙古领先展览中心">Монголын тэргүүлэх үзэсгэлэнгийн төв</div>
-          <h1 data-mn="Таны бизнесийн<br><em>алтан гарц</em>" data-en="Your Business's<br><em>Golden Gateway</em>" data-zh="您商业的<br><em>黄金门户</em>">Таны бизнесийн<br><em>алтан гарц</em></h1>
-          <p class="hero-sub" data-mn="2002 оноос хойш монголын арилжаа, бизнесийн уулзалтын тэргүүлэгч талбай. 40+ арга хэмжээ, 1,200+ компани жил бүр." data-en="Mongolia's leading trade and business platform since 2002. 40+ events and 1,200+ companies per year." data-zh="自2002年以来蒙古领先的贸易和商业平台。每年举办40+活动，1,200+家公司参与。">2002 оноос хойш монголын арилжаа, бизнесийн уулзалтын тэргүүлэгч талбай. 40+ арга хэмжээ, 1,200+ компани жил бүр.</p>
+          <div class="hero-eyebrow" data-cms="hero-eyebrow" data-mn="Монголын тэргүүлэх үзэсгэлэнгийн төв" data-en="Mongolia's Leading Exhibition Centre" data-zh="蒙古领先展览中心">Монголын тэргүүлэх үзэсгэлэнгийн төв</div>
+          <h1 data-cms="hero-title" data-mn="Таны бизнесийн<br><em>алтан гарц</em>" data-en="Your Business's<br><em>Golden Gateway</em>" data-zh="您商业的<br><em>黄金门户</em>">Таны бизнесийн<br><em>алтан гарц</em></h1>
+          <p class="hero-sub" data-cms="hero-sub" data-mn="2002 оноос хойш монголын арилжаа, бизнесийн уулзалтын тэргүүлэгч талбай. 40+ арга хэмжээ, 1,200+ компани жил бүр." data-en="Mongolia's leading trade and business platform since 2002. 40+ events and 1,200+ companies per year." data-zh="自2002年以来蒙古领先的贸易和商业平台。每年举办40+活动，1,200+家公司参与。">2002 оноос хойш монголын арилжаа, бизнесийн уулзалтын тэргүүлэгч талбай. 40+ арга хэмжээ, 1,200+ компани жил бүр.</p>
           <div class="hero-btns">
             <a href="#contact" class="btn btn-gold" data-mn="Оролцогч болох →" data-en="Become an Exhibitor →" data-zh="成为参展商 →">Оролцогч болох →</a>
             <a href="#events" class="btn btn-outline-white" data-mn="Арга хэмжээ үзэх" data-en="View Events" data-zh="查看活动">Арга хэмжээ үзэх</a>
@@ -1287,20 +1287,20 @@
 <div class="stats-bar">
   <div class="stats-inner">
     <div class="stat-item">
-      <span class="stat-num">100,000<span class="stat-unit">+</span></span>
-      <span class="stat-label">Жилийн зочид / Annual Visitors</span>
+      <span class="stat-num" data-cms="stat1-num">100,000<span class="stat-unit">+</span></span>
+      <span class="stat-label" data-cms="stat1-label">Жилийн зочид / Annual Visitors</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num">40<span class="stat-unit">+</span></span>
-      <span class="stat-label">Арга хэмжээ жил бүр / Events per Year</span>
+      <span class="stat-num" data-cms="stat2-num">40<span class="stat-unit">+</span></span>
+      <span class="stat-label" data-cms="stat2-label">Арга хэмжээ жил бүр / Events per Year</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num">1,200<span class="stat-unit">+</span></span>
-      <span class="stat-label">Оролцогч компани / Exhibiting Companies</span>
+      <span class="stat-num" data-cms="stat3-num">1,200<span class="stat-unit">+</span></span>
+      <span class="stat-label" data-cms="stat3-label">Оролцогч компани / Exhibiting Companies</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num">2,511<span class="stat-unit">м²</span></span>
-      <span class="stat-label">Үзэсгэлэнгийн талбай / Exhibition Area</span>
+      <span class="stat-num" data-cms="stat4-num">2,511<span class="stat-unit">м²</span></span>
+      <span class="stat-label" data-cms="stat4-label">Үзэсгэлэнгийн талбай / Exhibition Area</span>
     </div>
   </div>
 </div>
@@ -1680,14 +1680,14 @@
           <div class="contact-icon">✉️</div>
           <div>
             <h4>И-мэйл</h4>
-            <a href="mailto:info@misheelexpo.mn">info@misheelexpo.mn</a>
+            <a href="mailto:info@misheelexpo.mn" data-cms="contact-email">info@misheelexpo.mn</a>
           </div>
         </div>
         <div class="contact-block">
           <div class="contact-icon">🕐</div>
           <div>
             <h4>Ажлын цаг</h4>
-            <p>Даваа–Баасан: 09:00–18:00<br>Бямба: 10:00–16:00</p>
+            <p data-cms="contact-hours">Даваа–Баасан: 09:00–18:00<br>Бямба: 10:00–16:00</p>
           </div>
         </div>
       </div>
@@ -1951,7 +1951,7 @@
 
     // ═══ YOUTUBE PLAYER API ═══
     // 🎬 Видео ID солихдоо "MYXT5-HOK40"-г өөрчилнэ үү
-    var YT_VIDEO_ID = 'MYXT5-HOK40';
+    var YT_VIDEO_ID = localStorage.getItem('cms_youtube_id') || 'MYXT5-HOK40';
     var ytPlayer;
 
     // Load YouTube IFrame API
@@ -2021,130 +2021,775 @@
 </script>
 
 
-<!-- ═══ ЗУРАГ УДИРДАХ САМБАР (Admin Panel) ═══ -->
-<div id="adminToggleBtn" onclick="document.getElementById('adminPanel').classList.toggle('open')" style="position:fixed;bottom:80px;right:24px;z-index:9999;background:#c41e3a;color:white;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;box-shadow:0 4px 20px rgba(196,30,58,0.5);" title="Зураг солих">🖼️</div>
 
-<div id="adminPanel" style="position:fixed;top:0;right:-420px;width:400px;height:100vh;background:#111827;z-index:9998;box-shadow:-8px 0 40px rgba(0,0,0,0.4);transition:right 0.3s ease;overflow-y:auto;display:flex;flex-direction:column;">
-  <div style="padding:24px;border-bottom:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;">
-    <div>
-      <div style="color:white;font-size:16px;font-weight:700;font-family:Montserrat,sans-serif;">🖼️ Зураг Солих</div>
-      <div style="color:rgba(255,255,255,0.4);font-size:11px;margin-top:2px;">Зургаа чирж оруулах эсвэл товшиж сонгоно</div>
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- 🛠️  МИШЭЭЛ ЭКСПО CMS — Бүрэн Контент Удирдах Самбар      -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+
+<style>
+/* ── CMS Button ── */
+#cmsOpenBtn {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #c41e3a; color: white; border: none; cursor: pointer;
+  font-size: 24px; box-shadow: 0 4px 24px rgba(196,30,58,0.5);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+#cmsOpenBtn:hover { transform: scale(1.08); box-shadow: 0 8px 32px rgba(196,30,58,0.6); }
+
+/* ── CMS Overlay ── */
+#cmsOverlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+  z-index: 9997; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+}
+#cmsOverlay.open { opacity: 1; pointer-events: all; }
+
+/* ── CMS Panel ── */
+#cmsPanel {
+  position: fixed; top: 0; right: -520px; width: 500px; height: 100vh;
+  background: #0d1117; z-index: 9998; display: flex; flex-direction: column;
+  box-shadow: -8px 0 48px rgba(0,0,0,0.5);
+  transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
+  font-family: 'Montserrat', sans-serif;
+}
+#cmsPanel.open { right: 0; }
+
+/* ── Panel Header ── */
+.cms-header {
+  padding: 20px 24px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.cms-header-title { color: white; font-size: 15px; font-weight: 700; }
+.cms-header-sub { color: rgba(255,255,255,0.35); font-size: 11px; margin-top: 2px; }
+.cms-close {
+  width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.08);
+  border: none; color: rgba(255,255,255,0.5); cursor: pointer; font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+}
+.cms-close:hover { background: rgba(196,30,58,0.3); color: white; }
+
+/* ── Tabs ── */
+.cms-tabs {
+  display: flex; border-bottom: 1px solid rgba(255,255,255,0.08);
+  flex-shrink: 0; overflow-x: auto;
+}
+.cms-tab {
+  padding: 12px 18px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.4);
+  cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap;
+  transition: all 0.2s; border: none; background: none;
+}
+.cms-tab:hover { color: rgba(255,255,255,0.7); }
+.cms-tab.active { color: #c41e3a; border-bottom-color: #c41e3a; }
+
+/* ── Tab Content ── */
+.cms-body { flex: 1; overflow-y: auto; padding: 20px; }
+.cms-tab-content { display: none; }
+.cms-tab-content.active { display: block; }
+
+/* ── Field ── */
+.cms-field { margin-bottom: 16px; }
+.cms-label {
+  display: block; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.5);
+  letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px;
+}
+.cms-input, .cms-textarea, .cms-select {
+  width: 100%; padding: 10px 12px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px; color: white; font-size: 13px;
+  font-family: 'Montserrat', sans-serif; outline: none;
+  transition: border-color 0.2s;
+}
+.cms-input:focus, .cms-textarea:focus { border-color: #c41e3a; }
+.cms-textarea { height: 70px; resize: vertical; }
+
+/* ── Image Upload ── */
+.cms-img-upload {
+  border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px;
+  padding: 14px; cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; gap: 12px;
+}
+.cms-img-upload:hover { border-color: #c41e3a; background: rgba(196,30,58,0.05); }
+.cms-img-upload input { display: none; }
+.cms-img-thumb {
+  width: 60px; height: 44px; border-radius: 4px; object-fit: cover;
+  background: rgba(255,255,255,0.06); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; font-size: 20px;
+}
+.cms-img-thumb img { width: 100%; height: 100%; object-fit: cover; display: none; }
+.cms-img-info { flex: 1; }
+.cms-img-name { color: rgba(255,255,255,0.8); font-size: 12px; font-weight: 600; }
+.cms-img-status { color: rgba(255,255,255,0.3); font-size: 11px; margin-top: 2px; }
+
+/* ── Section Header ── */
+.cms-section-title {
+  font-size: 12px; font-weight: 700; color: #c41e3a;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding-bottom: 8px; border-bottom: 1px solid rgba(196,30,58,0.25);
+  margin-bottom: 14px; margin-top: 20px;
+}
+.cms-section-title:first-child { margin-top: 0; }
+
+/* ── Save Button ── */
+.cms-save-btn {
+  width: 100%; padding: 12px; background: #c41e3a; color: white;
+  border: none; border-radius: 6px; font-size: 13px; font-weight: 700;
+  cursor: pointer; font-family: 'Montserrat', sans-serif;
+  transition: background 0.2s; margin-top: 12px;
+}
+.cms-save-btn:hover { background: #a01830; }
+.cms-save-btn.saved { background: #16a34a; }
+
+/* ── Event mini card in CMS ── */
+.cms-event-block {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; padding: 14px; margin-bottom: 12px;
+}
+.cms-event-num {
+  font-size: 10px; font-weight: 700; color: #c41e3a;
+  letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px;
+}
+.cms-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* ── Ticker tag ── */
+.cms-ticker-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.08); border-radius: 4px;
+  padding: 4px 10px; font-size: 12px; color: rgba(255,255,255,0.7);
+  margin: 3px; cursor: pointer;
+}
+.cms-ticker-tag:hover { background: rgba(196,30,58,0.3); }
+.cms-ticker-add {
+  display: flex; gap: 8px; margin-top: 10px;
+}
+.cms-ticker-add input { flex: 1; }
+.cms-ticker-add button {
+  padding: 10px 14px; background: #c41e3a; color: white; border: none;
+  border-radius: 6px; cursor: pointer; font-size: 13px;
+}
+
+/* ── Footer note ── */
+.cms-footer-note {
+  padding: 12px 20px; border-top: 1px solid rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.25); font-size: 10px; flex-shrink: 0;
+}
+
+/* ── Login Modal ── */
+#cmsLoginModal {
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(0,0,0,0.75); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.25s;
+}
+#cmsLoginModal.open { opacity: 1; pointer-events: all; }
+#cmsLoginBox {
+  background: #0d1117; border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; padding: 36px 32px; width: 340px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+  transform: translateY(16px); transition: transform 0.25s;
+  font-family: 'Montserrat', sans-serif;
+}
+#cmsLoginModal.open #cmsLoginBox { transform: translateY(0); }
+.cms-login-logo {
+  text-align: center; margin-bottom: 24px;
+}
+.cms-login-logo div:first-child {
+  font-size: 36px; margin-bottom: 8px;
+}
+.cms-login-logo div:last-child {
+  font-size: 13px; font-weight: 700; color: white; letter-spacing: 1px;
+}
+.cms-login-logo span { color: #c41e3a; }
+.cms-login-label {
+  display: block; font-size: 11px; font-weight: 600;
+  color: rgba(255,255,255,0.4); letter-spacing: 0.5px;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.cms-login-input {
+  width: 100%; padding: 11px 14px; margin-bottom: 12px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px; color: white; font-size: 14px;
+  font-family: 'Montserrat', sans-serif; outline: none;
+  transition: border-color 0.2s;
+}
+.cms-login-input:focus { border-color: #c41e3a; }
+.cms-login-btn {
+  width: 100%; padding: 12px; margin-top: 4px;
+  background: #c41e3a; color: white; border: none;
+  border-radius: 6px; font-size: 14px; font-weight: 700;
+  cursor: pointer; font-family: 'Montserrat', sans-serif;
+  transition: background 0.2s;
+}
+.cms-login-btn:hover { background: #a01830; }
+.cms-login-error {
+  color: #f87171; font-size: 12px; text-align: center;
+  margin-top: 10px; min-height: 18px;
+}
+.cms-login-attempts {
+  color: rgba(255,255,255,0.2); font-size: 10px;
+  text-align: center; margin-top: 8px;
+}
+</style>
+
+<!-- Login Modal -->
+<div id="cmsLoginModal">
+  <div id="cmsLoginBox">
+    <div class="cms-login-logo">
+      <div>🛠️</div>
+      <div>МИШЭЭЛ ЭКСПО <span>CMS</span></div>
     </div>
-    <div onclick="document.getElementById('adminPanel').classList.remove('open')" style="color:rgba(255,255,255,0.5);cursor:pointer;font-size:20px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,0.08);">✕</div>
-  </div>
-  <div style="padding:20px;display:flex;flex-direction:column;gap:16px;">
-    <div class="img-upload-row" data-target="event1-img" data-label="Арга хэмжээ 1 — Олон Улсын Бизнесийн Үзэсгэлэн"></div>
-    <div class="img-upload-row" data-target="event2-img" data-label="Арга хэмжээ 2 — Wedding Expo"></div>
-    <div class="img-upload-row" data-target="event3-img" data-label="Арга хэмжээ 3 — Kids Expo"></div>
-    <div class="img-upload-row" data-target="event4-img" data-label="Арга хэмжээ 4 — Horica Conference"></div>
-    <div class="img-upload-row" data-target="event5-img" data-label="Арга хэмжээ 5 — Health & Beauty Expo"></div>
-    <div class="img-upload-row" data-target="event6-img" data-label="Арга хэмжээ 6 — Naadam & Travel Expo"></div>
-  </div>
-  <div style="padding:16px 20px;margin-top:auto;border-top:1px solid rgba(255,255,255,0.08);">
-    <div style="color:rgba(255,255,255,0.35);font-size:11px;line-height:1.6;">⚠️ Зургууд энэ browser-д хадгалагдана. Хэрэв өөр компьютерт нээвэл дахин upload хийх хэрэгтэй.</div>
+    <label class="cms-login-label">Нууц үг</label>
+    <input class="cms-login-input" type="password" id="cmsPasswordInput"
+      placeholder="••••••••" onkeydown="if(event.key==='Enter')checkCmsPassword()">
+    <button class="cms-login-btn" onclick="checkCmsPassword()">Нэвтрэх →</button>
+    <div class="cms-login-error" id="cmsLoginError"></div>
+    <div class="cms-login-attempts" id="cmsLoginAttempts"></div>
   </div>
 </div>
 
-<style>
-  #adminPanel.open { right: 0; }
-  .img-upload-row {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px;
-    padding: 14px;
-    cursor: pointer;
-    transition: all 0.2s;
-    position: relative;
-  }
-  .img-upload-row:hover { border-color: rgba(196,30,58,0.5); background: rgba(196,30,58,0.08); }
-  .img-upload-row input[type=file] { display:none; }
-  .img-upload-label { display:flex; align-items:center; gap:12px; cursor:pointer; }
-  .img-upload-thumb { width:56px; height:42px; border-radius:4px; object-fit:cover; background:#1f2937; flex-shrink:0; border:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; overflow:hidden; }
-  .img-upload-thumb img { width:100%; height:100%; object-fit:cover; }
-  .img-upload-thumb-placeholder { color:rgba(255,255,255,0.2); font-size:18px; }
-  .img-upload-info { flex:1; }
-  .img-upload-name { color:rgba(255,255,255,0.85); font-size:12px; font-weight:600; font-family:Montserrat,sans-serif; line-height:1.4; }
-  .img-upload-status { color:rgba(255,255,255,0.35); font-size:11px; margin-top:3px; }
-  .img-upload-btn { color:#c41e3a; font-size:11px; font-weight:700; letter-spacing:0.5px; }
-</style>
+<!-- CMS Toggle Button -->
+<button id="cmsOpenBtn" title="Контент засах самбар">⚙️</button>
+<div id="cmsOverlay" onclick="closeCMS()"></div>
+
+<!-- CMS Panel -->
+<div id="cmsPanel">
+  <div class="cms-header">
+    <div>
+      <div class="cms-header-title">🛠️ Мишээл Экспо CMS</div>
+      <div class="cms-header-sub">Вэбсайтын контентийг энд засна</div>
+    </div>
+    <button class="cms-close" onclick="closeCMS()">✕</button>
+  </div>
+
+  <div class="cms-tabs">
+    <button class="cms-tab active" onclick="switchTab('hero')">🎬 Нүүр</button>
+    <button class="cms-tab" onclick="switchTab('events')">📅 Арга хэмжээ</button>
+    <button class="cms-tab" onclick="switchTab('stats')">📊 Статистик</button>
+    <button class="cms-tab" onclick="switchTab('ticker')">📢 Мэдэгдэл</button>
+    <button class="cms-tab" onclick="switchTab('contact')">📞 Холбоо</button>
+  </div>
+
+  <div class="cms-body">
+
+    <!-- ══ TAB: HERO ══ -->
+    <div class="cms-tab-content active" id="tab-hero">
+      <div class="cms-section-title">🎬 YouTube Арын Видео</div>
+      <div class="cms-field">
+        <label class="cms-label">YouTube Видео ID</label>
+        <input class="cms-input" id="cms-youtube-id" placeholder="жишээ: MYXT5-HOK40">
+        <div style="color:rgba(255,255,255,0.3);font-size:10px;margin-top:4px;">URL: youtube.com/watch?v=<strong style="color:#c41e3a">ЭНД_БАЙГАА_ID</strong></div>
+      </div>
+
+      <div class="cms-section-title">✏️ Нүүр Хуудасны Текст</div>
+      <div class="cms-field">
+        <label class="cms-label">Дээд гарчиг (eyebrow)</label>
+        <input class="cms-input" id="cms-hero-eyebrow" placeholder="Монголын тэргүүлэх үзэсгэлэнгийн төв">
+      </div>
+      <div class="cms-field">
+        <label class="cms-label">Үндсэн гарчиг (H1)</label>
+        <input class="cms-input" id="cms-hero-title" placeholder="Таны бизнесийн алтан гарц">
+      </div>
+      <div class="cms-field">
+        <label class="cms-label">Дэд тайлбар</label>
+        <textarea class="cms-textarea" id="cms-hero-sub" placeholder="2002 оноос хойш..."></textarea>
+      </div>
+
+      <button class="cms-save-btn" onclick="saveHero()">💾 Нүүр хуудас хадгалах</button>
+    </div>
+
+    <!-- ══ TAB: EVENTS ══ -->
+    <div class="cms-tab-content" id="tab-events">
+      <div id="cms-events-list"></div>
+    </div>
+
+    <!-- ══ TAB: STATS ══ -->
+    <div class="cms-tab-content" id="tab-stats">
+      <div class="cms-section-title">📊 Статистик тоонууд</div>
+      <div id="cms-stats-list"></div>
+      <button class="cms-save-btn" onclick="saveStats()">💾 Статистик хадгалах</button>
+    </div>
+
+    <!-- ══ TAB: TICKER ══ -->
+    <div class="cms-tab-content" id="tab-ticker">
+      <div class="cms-section-title">📢 Дээрх гүйж байгаа мэдэгдлүүд</div>
+      <div id="cms-ticker-tags"></div>
+      <div class="cms-ticker-add">
+        <input class="cms-input" id="cms-ticker-new" placeholder="Шинэ мэдэгдэл нэмэх...">
+        <button onclick="addTickerItem()">+ Нэмэх</button>
+      </div>
+      <button class="cms-save-btn" onclick="saveTicker()">💾 Мэдэгдэл хадгалах</button>
+    </div>
+
+    <!-- ══ TAB: CONTACT ══ -->
+    <div class="cms-tab-content" id="tab-contact">
+      <div class="cms-section-title">📞 Холбоо барих мэдээлэл</div>
+      <div class="cms-field">
+        <label class="cms-label">И-мэйл хаяг</label>
+        <input class="cms-input" id="cms-contact-email" placeholder="info@misheelexpo.mn">
+      </div>
+      <div class="cms-field">
+        <label class="cms-label">Утасны дугаар</label>
+        <input class="cms-input" id="cms-contact-phone" placeholder="+976 9911-XXXX">
+      </div>
+      <div class="cms-field">
+        <label class="cms-label">Хаяг</label>
+        <input class="cms-input" id="cms-contact-address" placeholder="Улаанбаатар, Сүхбаатар дүүрэг">
+      </div>
+      <div class="cms-field">
+        <label class="cms-label">Ажлын цаг</label>
+        <textarea class="cms-textarea" id="cms-contact-hours" placeholder="Даваа–Баасан: 09:00–18:00&#10;Бямба: 10:00–16:00"></textarea>
+      </div>
+      <button class="cms-save-btn" onclick="saveContact()">💾 Холбоо барих хадгалах</button>
+    </div>
+
+  </div>
+  <div class="cms-footer-note">⚠️ Өгөгдөл энэ browser-д хадгалагдана. Сайт сервер дээр байрласны дараа бүгд харагдана.</div>
+</div>
 
 <script>
-  // ═══ ADMIN PANEL LOGIC ═══
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.img-upload-row').forEach(function(row) {
-      var target = row.dataset.target;
-      var label = row.dataset.label;
-      var savedKey = 'imgupload_' + target;
+// ════════════════════════════════════════════════
+// CMS ENGINE — Мишээл Экспо
+// ════════════════════════════════════════════════
 
-      // Build UI
-      row.innerHTML =
-        '<label class="img-upload-label">' +
-          '<div class="img-upload-thumb"><img id="thumb_' + target + '" src="" style="display:none"><span class="img-upload-thumb-placeholder">📷</span></div>' +
-          '<div class="img-upload-info">' +
-            '<div class="img-upload-name">' + label + '</div>' +
-            '<div class="img-upload-status" id="status_' + target + '">Зураг сонгоогүй</div>' +
-          '</div>' +
-          '<div class="img-upload-btn">↑ Upload</div>' +
-          '<input type="file" accept="image/*" id="file_' + target + '">' +
-        '</label>';
+const CMS_EVENTS = [
+  { key:'event1', label:'Арга хэмжээ 1', title:'Олон Улсын Бизнесийн Үзэсгэлэн 2026', date:'Май 15–18, 2026', day:'15', month:'May', cat:'Олон улсын', imgClass:'event1-img' },
+  { key:'event2', label:'Арга хэмжээ 2', title:'Wedding Expo 2026 — Гэрлэлтийн Яармаг', date:'6-р сарын 8–10, 2026', day:'08', month:'Jun', cat:'Wedding', imgClass:'event2-img' },
+  { key:'event3', label:'Арга хэмжээ 3', title:'Kids Expo 2026 — Хүүхдийн Их Наадам', date:'6-р сарын 20–22, 2026', day:'20', month:'Jun', cat:'Хүүхэд', imgClass:'event3-img' },
+  { key:'event4', label:'Арга хэмжээ 4', title:'Horica Conference & Festival 2026', date:'7-р сарын 10–12, 2026', day:'10', month:'Jul', cat:'Хоол & Зочлол', imgClass:'event4-img' },
+  { key:'event5', label:'Арга хэмжээ 5', title:'Health Care & Beauty Expo 2026', date:'7-р сарын 25–27, 2026', day:'25', month:'Jul', cat:'Гоо сайхан', imgClass:'event5-img' },
+  { key:'event6', label:'Арга хэмжээ 6', title:'Naadam & Travel Expo 2026', date:'8-р сарын 1–3, 2026', day:'01', month:'Aug', cat:'Аялал жуулчлал', imgClass:'event6-img' },
+];
 
-      // Load saved image
-      try {
-        var saved = localStorage.getItem(savedKey);
-        if (saved) applyImage(target, saved);
-      } catch(e) {}
+const CMS_STATS = [
+  { key:'stat1', numKey:'stat1-num', labelKey:'stat1-label', defaultNum:'100,000+', defaultLabel:'Жилийн зочид / Annual Visitors' },
+  { key:'stat2', numKey:'stat2-num', labelKey:'stat2-label', defaultNum:'40+', defaultLabel:'Арга хэмжээ жил бүр / Events per Year' },
+  { key:'stat3', numKey:'stat3-num', labelKey:'stat3-label', defaultNum:'1,200+', defaultLabel:'Оролцогч компани / Exhibiting Companies' },
+  { key:'stat4', numKey:'stat4-num', labelKey:'stat4-label', defaultNum:'2,511 м²', defaultLabel:'Үзэсгэлэнгийн талбай / Exhibition Area' },
+];
 
-      // File input change
-      row.querySelector('input[type=file]').addEventListener('change', function(e) {
-        var file = e.target.files[0];
-        if (!file) return;
-        var reader = new FileReader();
-        reader.onload = function(ev) {
-          var dataUrl = ev.target.result;
-          applyImage(target, dataUrl);
-          try { localStorage.setItem(savedKey, dataUrl); } catch(e) {
-            alert('Зураг хэт том байна. Жижигрүүлж дахин оролдоно уу.');
-          }
-        };
-        reader.readAsDataURL(file);
-      });
+function ls(key, val) {
+  try { if(val!==undefined) localStorage.setItem(key,val); else return localStorage.getItem(key); } catch(e){ return null; }
+}
 
-      // Click row = trigger file input
-      row.addEventListener('click', function() {
-        row.querySelector('input[type=file]').click();
-      });
+// ════════════════════════════════════════════════
+// PASSWORD SYSTEM
+// ════════════════════════════════════════════════
+// 🔐 НУУЦ ҮГ СОЛИХДОО ДООРХ МӨРИЙГ ӨӨРЧЛӨНӨ:
+var CMS_PASSWORD = 'misheel2026';
+var loginAttempts = 0;
+var lockUntil = 0;
 
-      // Drag & drop
-      row.addEventListener('dragover', function(e) { e.preventDefault(); row.style.borderColor='#c41e3a'; });
-      row.addEventListener('dragleave', function() { row.style.borderColor=''; });
-      row.addEventListener('drop', function(e) {
-        e.preventDefault();
-        row.style.borderColor='';
-        var file = e.dataTransfer.files[0];
-        if (!file || !file.type.startsWith('image/')) return;
-        var reader = new FileReader();
-        reader.onload = function(ev) {
-          var dataUrl = ev.target.result;
-          applyImage(target, dataUrl);
-          try { localStorage.setItem(savedKey, dataUrl); } catch(e) {}
-        };
-        reader.readAsDataURL(file);
-      });
-    });
+function openCMS() {
+  // Check if already authenticated this session
+  if (sessionStorage.getItem('cms_auth') === 'true') {
+    showCMSPanel();
+    return;
+  }
+  // Show login modal
+  var modal = document.getElementById('cmsLoginModal');
+  modal.classList.add('open');
+  document.getElementById('cmsPasswordInput').value = '';
+  document.getElementById('cmsLoginError').textContent = '';
+  document.getElementById('cmsLoginAttempts').textContent = '';
+  setTimeout(function() { document.getElementById('cmsPasswordInput').focus(); }, 100);
+}
 
-    function applyImage(target, src) {
-      // Apply to event cards
-      document.querySelectorAll('.' + target).forEach(function(img) {
-        img.src = src;
-        img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;';
-      });
-      // Update thumb
-      var thumb = document.getElementById('thumb_' + target);
-      if (thumb) { thumb.src = src; thumb.style.display = 'block'; thumb.previousElementSibling && (thumb.previousElementSibling.style.display='none'); }
-      var status = document.getElementById('status_' + target);
-      if (status) status.innerHTML = '<span style="color:#4ade80">✓ Зураг оруулагдсан</span>';
+function checkCmsPassword() {
+  var now = Date.now();
+  // Check lockout
+  if (lockUntil > now) {
+    var secs = Math.ceil((lockUntil - now) / 1000);
+    document.getElementById('cmsLoginError').textContent = '🔒 ' + secs + ' секундын дараа дахин оролдоно уу';
+    return;
+  }
+  var input = document.getElementById('cmsPasswordInput').value;
+  if (input === CMS_PASSWORD) {
+    sessionStorage.setItem('cms_auth', 'true');
+    loginAttempts = 0;
+    document.getElementById('cmsLoginModal').classList.remove('open');
+    document.getElementById('cmsPasswordInput').value = '';
+    showCMSPanel();
+  } else {
+    loginAttempts++;
+    document.getElementById('cmsPasswordInput').value = '';
+    document.getElementById('cmsPasswordInput').focus();
+    if (loginAttempts >= 5) {
+      lockUntil = now + 30000; // 30 second lockout
+      loginAttempts = 0;
+      document.getElementById('cmsLoginError').textContent = '🔒 30 секунд хүлээнэ үү';
+      document.getElementById('cmsLoginAttempts').textContent = '';
+      setTimeout(function() {
+        document.getElementById('cmsLoginError').textContent = '';
+      }, 30000);
+    } else {
+      var remaining = 5 - loginAttempts;
+      document.getElementById('cmsLoginError').textContent = '❌ Нууц үг буруу байна';
+      document.getElementById('cmsLoginAttempts').textContent = remaining + ' оролдлого үлдлээ';
+    }
+  }
+}
+
+function showCMSPanel() {
+  document.getElementById('cmsPanel').classList.add('open');
+  document.getElementById('cmsOverlay').classList.add('open');
+}
+
+function closeCMS() {
+  document.getElementById('cmsPanel').classList.remove('open');
+  document.getElementById('cmsOverlay').classList.remove('open');
+}
+
+// Close login modal on overlay click
+document.getElementById('cmsLoginModal').addEventListener('click', function(e) {
+  if (e.target === this) this.classList.remove('open');
+});
+
+document.getElementById('cmsOpenBtn').addEventListener('click', openCMS);
+
+// ── Tabs ──
+function switchTab(name) {
+  document.querySelectorAll('.cms-tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.cms-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── Feedback ──
+function showSaved(btn) {
+  btn.textContent = '✓ Хадгалагдлаа!';
+  btn.classList.add('saved');
+  setTimeout(() => { btn.textContent = btn.dataset.orig; btn.classList.remove('saved'); }, 2000);
+}
+
+// ══════════════════════════════════
+// HERO TAB
+// ══════════════════════════════════
+function initHero() {
+  document.getElementById('cms-youtube-id').value = ls('cms_youtube_id') || 'MYXT5-HOK40';
+  document.getElementById('cms-hero-eyebrow').value = ls('cms_hero_eyebrow') || '';
+  document.getElementById('cms-hero-title').value = ls('cms_hero_title') || '';
+  document.getElementById('cms-hero-sub').value = ls('cms_hero_sub') || '';
+}
+
+function saveHero() {
+  var ytId = document.getElementById('cms-youtube-id').value.trim();
+  var eyebrow = document.getElementById('cms-hero-eyebrow').value.trim();
+  var title = document.getElementById('cms-hero-title').value.trim();
+  var sub = document.getElementById('cms-hero-sub').value.trim();
+
+  if(ytId) { ls('cms_youtube_id', ytId); }
+  if(eyebrow) { ls('cms_hero_eyebrow', eyebrow); applyText('[data-cms="hero-eyebrow"]', eyebrow); }
+  if(title) { ls('cms_hero_title', title); applyText('[data-cms="hero-title"]', title); }
+  if(sub) { ls('cms_hero_sub', sub); applyText('[data-cms="hero-sub"]', sub); }
+
+  var btn = document.querySelector('#tab-hero .cms-save-btn');
+  btn.dataset.orig = btn.textContent;
+  showSaved(btn);
+
+  if(ytId && window.ytPlayer) {
+    window.ytPlayer.loadVideoById({ videoId: ytId, startSeconds: 0 });
+  }
+}
+
+// ══════════════════════════════════
+// EVENTS TAB
+// ══════════════════════════════════
+function initEvents() {
+  var container = document.getElementById('cms-events-list');
+  container.innerHTML = '';
+  CMS_EVENTS.forEach(function(ev) {
+    var savedTitle = ls('cms_ev_title_' + ev.key) || ev.title;
+    var savedDate  = ls('cms_ev_date_' + ev.key)  || ev.date;
+    var savedDay   = ls('cms_ev_day_' + ev.key)   || ev.day;
+    var savedMonth = ls('cms_ev_month_' + ev.key) || ev.month;
+    var savedCat   = ls('cms_ev_cat_' + ev.key)   || ev.cat;
+
+    container.innerHTML += '<div class="cms-event-block">' +
+      '<div class="cms-event-num">📅 ' + ev.label + '</div>' +
+      '<div class="cms-img-upload" onclick="document.getElementById(\'file_' + ev.key + '\').click()" id="upload_' + ev.key + '">' +
+        '<div class="cms-img-thumb" id="thumb_' + ev.key + '"><span>🖼️</span><img id="thumbimg_' + ev.key + '" src=""></div>' +
+        '<div class="cms-img-info"><div class="cms-img-name">Зураг солих</div><div class="cms-img-status" id="imgstatus_' + ev.key + '">Товшиж зураг сонгох</div></div>' +
+        '<input type="file" accept="image/*" id="file_' + ev.key + '" onchange="handleEvImg(this,\'' + ev.key + '\',\'' + ev.imgClass + '\')">' +
+      '</div>' +
+      '<div class="cms-field" style="margin-top:10px;"><label class="cms-label">Арга хэмжээний нэр</label>' +
+        '<input class="cms-input" id="ev_title_' + ev.key + '" value="' + savedTitle.replace(/"/g,'&quot;') + '"></div>' +
+      '<div class="cms-row">' +
+        '<div class="cms-field"><label class="cms-label">Огноо (бичвэр)</label>' +
+          '<input class="cms-input" id="ev_date_' + ev.key + '" value="' + savedDate + '"></div>' +
+        '<div class="cms-field"><label class="cms-label">Ангилал</label>' +
+          '<input class="cms-input" id="ev_cat_' + ev.key + '" value="' + savedCat + '"></div>' +
+      '</div>' +
+      '<div class="cms-row">' +
+        '<div class="cms-field"><label class="cms-label">Өдөр (тоо)</label>' +
+          '<input class="cms-input" id="ev_day_' + ev.key + '" value="' + savedDay + '" style="text-align:center"></div>' +
+        '<div class="cms-field"><label class="cms-label">Сар (3 үсэг)</label>' +
+          '<input class="cms-input" id="ev_month_' + ev.key + '" value="' + savedMonth + '" style="text-align:center"></div>' +
+      '</div>' +
+      '<button class="cms-save-btn" onclick="saveEvent(\'' + ev.key + '\',\'' + ev.imgClass + '\')" data-orig="💾 Хадгалах">💾 Хадгалах</button>' +
+    '</div>';
+  });
+
+  // Load saved images into thumbs
+  CMS_EVENTS.forEach(function(ev) {
+    var saved = ls('cms_ev_img_' + ev.key);
+    if(saved) {
+      setThumb(ev.key, saved);
+      applyEvImg(ev.imgClass, saved);
     }
   });
+}
+
+function handleEvImg(input, key, imgClass) {
+  var file = input.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var data = e.target.result;
+    try { ls('cms_ev_img_' + key, data); } catch(err) { alert('Зураг хэт том! Жижиг зураг ашиглана уу.'); return; }
+    setThumb(key, data);
+    applyEvImg(imgClass, data);
+    document.getElementById('imgstatus_' + key).innerHTML = '<span style="color:#4ade80">✓ Зураг оруулагдсан</span>';
+  };
+  reader.readAsDataURL(file);
+}
+
+function setThumb(key, src) {
+  var img = document.getElementById('thumbimg_' + key);
+  if(img) { img.src = src; img.style.display = 'block'; img.previousElementSibling && (img.previousElementSibling.style.display='none'); }
+  var st = document.getElementById('imgstatus_' + key);
+  if(st) st.innerHTML = '<span style="color:#4ade80">✓ Зураг оруулагдсан</span>';
+}
+
+function applyEvImg(imgClass, src) {
+  document.querySelectorAll('.' + imgClass).forEach(function(img) {
+    img.src = src;
+    img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;';
+  });
+}
+
+function saveEvent(key, imgClass) {
+  var title = document.getElementById('ev_title_' + key).value;
+  var date  = document.getElementById('ev_date_' + key).value;
+  var cat   = document.getElementById('ev_cat_' + key).value;
+  var day   = document.getElementById('ev_day_' + key).value;
+  var month = document.getElementById('ev_month_' + key).value;
+
+  ls('cms_ev_title_' + key, title);
+  ls('cms_ev_date_'  + key, date);
+  ls('cms_ev_cat_'   + key, cat);
+  ls('cms_ev_day_'   + key, day);
+  ls('cms_ev_month_' + key, month);
+
+  // Apply to page
+  var cards = document.querySelectorAll('.' + imgClass);
+  cards.forEach(function(img) {
+    var card = img.closest('.event-card');
+    if(!card) return;
+    var titleEl = card.querySelector('.event-title');
+    if(titleEl) titleEl.textContent = title;
+    var dateRows = card.querySelectorAll('.event-meta-row');
+    if(dateRows[0]) dateRows[0].innerHTML = dateRows[0].querySelector('svg').outerHTML + ' ' + date;
+    var catEl = card.querySelector('.event-cat');
+    if(catEl) catEl.textContent = cat;
+    var dayEl = card.querySelector('.event-date-badge .day');
+    if(dayEl) dayEl.textContent = day;
+    var monthEl = card.querySelector('.event-date-badge .month');
+    if(monthEl) monthEl.textContent = month;
+  });
+
+  var btn = document.querySelector('#cms-events-list .cms-event-block:nth-child(' + (CMS_EVENTS.findIndex(e=>e.key===key)+1) + ') .cms-save-btn');
+  if(btn) { btn.dataset.orig = '💾 Хадгалах'; showSaved(btn); }
+}
+
+// ══════════════════════════════════
+// STATS TAB
+// ══════════════════════════════════
+function initStats() {
+  var container = document.getElementById('cms-stats-list');
+  container.innerHTML = '';
+  CMS_STATS.forEach(function(st, i) {
+    var savedNum   = ls('cms_' + st.numKey)   || st.defaultNum;
+    var savedLabel = ls('cms_' + st.labelKey) || st.defaultLabel;
+    container.innerHTML +=
+      '<div class="cms-event-block">' +
+        '<div class="cms-event-num">📊 Статистик ' + (i+1) + '</div>' +
+        '<div class="cms-row">' +
+          '<div class="cms-field"><label class="cms-label">Тоо</label>' +
+            '<input class="cms-input" id="cms_' + st.numKey + '" value="' + savedNum + '" style="text-align:center;font-size:16px;font-weight:700;"></div>' +
+          '<div class="cms-field"><label class="cms-label">Тайлбар</label>' +
+            '<input class="cms-input" id="cms_' + st.labelKey + '" value="' + savedLabel + '"></div>' +
+        '</div>' +
+      '</div>';
+  });
+}
+
+function saveStats() {
+  CMS_STATS.forEach(function(st) {
+    var num   = document.getElementById('cms_' + st.numKey).value;
+    var label = document.getElementById('cms_' + st.labelKey).value;
+    ls('cms_' + st.numKey, num);
+    ls('cms_' + st.labelKey, label);
+    var numEls = document.querySelectorAll('[data-cms="' + st.numKey + '"]');
+    numEls.forEach(function(el) { el.innerHTML = num; });
+    var lblEls = document.querySelectorAll('[data-cms="' + st.labelKey + '"]');
+    lblEls.forEach(function(el) { el.innerHTML = label; });
+  });
+  var btn = document.querySelector('#tab-stats .cms-save-btn');
+  btn.dataset.orig = btn.textContent; showSaved(btn);
+}
+
+// ══════════════════════════════════
+// TICKER TAB
+// ══════════════════════════════════
+var tickerItems = [];
+
+function initTicker() {
+  var saved = ls('cms_ticker');
+  if(saved) {
+    try { tickerItems = JSON.parse(saved); } catch(e) {
+      tickerItems = ['Олон улсын үзэсгэлэн 2026','Wedding Expo — 5-р сард','Kids Expo — 6-р сард','Horica Conference Festival','Health & Beauty Expo','Naadam & Travel Expo'];
+    }
+  } else {
+    tickerItems = ['Олон улсын үзэсгэлэн 2026','Wedding Expo — 5-р сард','Kids Expo — 6-р сард','Horica Conference Festival','Health & Beauty Expo','Naadam & Travel Expo'];
+  }
+  renderTickerTags();
+}
+
+function renderTickerTags() {
+  var c = document.getElementById('cms-ticker-tags');
+  c.innerHTML = '<div style="margin-bottom:8px;">';
+  tickerItems.forEach(function(item, i) {
+    c.innerHTML += '<span class="cms-ticker-tag" onclick="removeTickerItem(' + i + ')">✦ ' + item + ' <span style="color:#c41e3a;font-weight:700;">✕</span></span>';
+  });
+  c.innerHTML += '</div><div style="color:rgba(255,255,255,0.3);font-size:11px;margin-top:4px;">Устгахыг хүсвэл дарна уу</div>';
+}
+
+function addTickerItem() {
+  var val = document.getElementById('cms-ticker-new').value.trim();
+  if(!val) return;
+  tickerItems.push(val);
+  document.getElementById('cms-ticker-new').value = '';
+  renderTickerTags();
+}
+
+function removeTickerItem(i) {
+  tickerItems.splice(i, 1);
+  renderTickerTags();
+}
+
+function saveTicker() {
+  ls('cms_ticker', JSON.stringify(tickerItems));
+  // Apply to page - duplicate for loop
+  var ticker = document.getElementById('tickerInner');
+  if(ticker) {
+    var html = '';
+    var doubled = tickerItems.concat(tickerItems);
+    doubled.forEach(function(item) { html += '<span class="ticker-item">✦ ' + item + '</span>'; });
+    ticker.innerHTML = html;
+  }
+  var btn = document.querySelector('#tab-ticker .cms-save-btn');
+  btn.dataset.orig = btn.textContent; showSaved(btn);
+}
+
+// ══════════════════════════════════
+// CONTACT TAB
+// ══════════════════════════════════
+function initContact() {
+  document.getElementById('cms-contact-email').value   = ls('cms_contact_email')   || 'info@misheelexpo.mn';
+  document.getElementById('cms-contact-phone').value   = ls('cms_contact_phone')   || '';
+  document.getElementById('cms-contact-address').value = ls('cms_contact_address') || 'Улаанбаатар, Сүхбаатар дүүрэг';
+  document.getElementById('cms-contact-hours').value   = ls('cms_contact_hours')   || 'Даваа–Баасан: 09:00–18:00\nБямба: 10:00–16:00';
+}
+
+function saveContact() {
+  var email   = document.getElementById('cms-contact-email').value.trim();
+  var phone   = document.getElementById('cms-contact-phone').value.trim();
+  var address = document.getElementById('cms-contact-address').value.trim();
+  var hours   = document.getElementById('cms-contact-hours').value.trim();
+
+  ls('cms_contact_email',   email);
+  ls('cms_contact_phone',   phone);
+  ls('cms_contact_address', address);
+  ls('cms_contact_hours',   hours);
+
+  if(email) { applyText('[data-cms="contact-email"]', email); document.querySelectorAll('[data-cms="contact-email"]').forEach(function(el){ el.href='mailto:'+email; }); }
+  if(hours) { applyText('[data-cms="contact-hours"]', hours.replace(/\n/g,'<br>')); }
+
+  var btn = document.querySelector('#tab-contact .cms-save-btn');
+  btn.dataset.orig = btn.textContent; showSaved(btn);
+}
+
+// ══════════════════════════════════
+// HELPERS
+// ══════════════════════════════════
+function applyText(selector, text) {
+  document.querySelectorAll(selector).forEach(function(el){ el.innerHTML = text; });
+}
+
+// ══════════════════════════════════
+// INIT ON LOAD
+// ══════════════════════════════════
+document.addEventListener('DOMContentLoaded', function() {
+  initHero();
+  initEvents();
+  initStats();
+  initTicker();
+  initContact();
+
+  // Apply saved data to page on load
+  var savedEyebrow = ls('cms_hero_eyebrow'); if(savedEyebrow) applyText('[data-cms="hero-eyebrow"]', savedEyebrow);
+  var savedTitle   = ls('cms_hero_title');   if(savedTitle)   applyText('[data-cms="hero-title"]', savedTitle);
+  var savedSub     = ls('cms_hero_sub');     if(savedSub)     applyText('[data-cms="hero-sub"]', savedSub);
+
+  CMS_STATS.forEach(function(st) {
+    var n = ls('cms_' + st.numKey);   if(n) applyText('[data-cms="' + st.numKey + '"]', n);
+    var l = ls('cms_' + st.labelKey); if(l) applyText('[data-cms="' + st.labelKey + '"]', l);
+  });
+
+  var savedTicker = ls('cms_ticker');
+  if(savedTicker) {
+    try {
+      var items = JSON.parse(savedTicker);
+      var ticker = document.getElementById('tickerInner');
+      if(ticker) {
+        var html = '';
+        items.concat(items).forEach(function(item) { html += '<span class="ticker-item">✦ ' + item + '</span>'; });
+        ticker.innerHTML = html;
+      }
+    } catch(e){}
+  }
+
+  var savedEmail = ls('cms_contact_email');
+  if(savedEmail) { applyText('[data-cms="contact-email"]', savedEmail); document.querySelectorAll('[data-cms="contact-email"]').forEach(function(el){ el.href='mailto:'+savedEmail; }); }
+  var savedHours = ls('cms_contact_hours');
+  if(savedHours) applyText('[data-cms="contact-hours"]', savedHours.replace(/\n/g,'<br>'));
+
+  CMS_EVENTS.forEach(function(ev) {
+    var savedImg = ls('cms_ev_img_' + ev.key);
+    if(savedImg) applyEvImg(ev.imgClass, savedImg);
+
+    var t  = ls('cms_ev_title_' + ev.key);
+    var d  = ls('cms_ev_date_'  + ev.key);
+    var c  = ls('cms_ev_cat_'   + ev.key);
+    var dy = ls('cms_ev_day_'   + ev.key);
+    var m  = ls('cms_ev_month_' + ev.key);
+
+    if(t||d||c||dy||m) {
+      document.querySelectorAll('.' + ev.imgClass).forEach(function(img) {
+        var card = img.closest('.event-card');
+        if(!card) return;
+        if(t) { var el=card.querySelector('.event-title'); if(el) el.textContent=t; }
+        if(d) { var rows=card.querySelectorAll('.event-meta-row'); if(rows[0]) rows[0].innerHTML=rows[0].querySelector('svg').outerHTML+' '+d; }
+        if(c) { var el=card.querySelector('.event-cat'); if(el) el.textContent=c; }
+        if(dy){ var el=card.querySelector('.event-date-badge .day'); if(el) el.textContent=dy; }
+        if(m) { var el=card.querySelector('.event-date-badge .month'); if(el) el.textContent=m; }
+      });
+    }
+  });
+});
 </script>
 
 </body>
