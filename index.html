@@ -1254,7 +1254,7 @@
     <div class="hero-slide active">
       <!-- ═══ YOUTUBE BACKGROUND VIDEO ═══ -->
       <!-- 🎬 YouTube видео ID солихдоо доорх 2 газрын "MYXT5-HOK40"-г өөрчлөхөд л болно -->
-      <div id="heroBgVideo" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;z-index:0;"></div>
+      <div id="heroBgVideo" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;z-index:0;background:#000;"></div>
       <div class="hero-bg-fallback" id="heroBgFallback" style="background:linear-gradient(135deg,#111827 0%,#1e2d3d 40%,#0f2027 100%);display:block;">
         <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,0.04) 60px,rgba(255,255,255,0.04) 61px);"></div>
       </div>
@@ -2016,19 +2016,33 @@
     function styleYTIframe() {
       var iframe = document.querySelector('#heroBgVideo iframe');
       if (iframe) {
+        // Бүтэн hero-г дүүргэх — aspect ratio 16:9 хадгалан, хамгийн богино тал нь 100% байхаар
+        var heroEl = document.querySelector('.hero');
+        var vw = heroEl ? heroEl.offsetWidth : window.innerWidth;
+        var vh = heroEl ? heroEl.offsetHeight : window.innerHeight;
+
+        var iframeW, iframeH;
+        // 16:9 харьцаагаар тооцно
+        if (vw / vh > 16 / 9) {
+          // Дэлгэц өргөн — өргөнөөр дүүргэнэ
+          iframeW = vw;
+          iframeH = vw * 9 / 16;
+        } else {
+          // Дэлгэц өндөр — өндрөөр дүүргэнэ
+          iframeH = vh;
+          iframeW = vh * 16 / 9;
+        }
+
         iframe.style.cssText = [
           'position:absolute',
           'top:50%',
           'left:50%',
           'transform:translate(-50%,-50%)',
-          'width:177.78vh',
-          'min-width:100vw',
-          'height:100vh',
-          'min-height:56.25vw',
+          'width:' + Math.ceil(iframeW) + 'px',
+          'height:' + Math.ceil(iframeH) + 'px',
           'border:none',
           'pointer-events:none',
-          'z-index:0',
-          'object-fit:cover'
+          'z-index:0'
         ].join(';');
       }
     }
@@ -2075,6 +2089,14 @@
 
     // Continuously fix iframe size on resize
     window.addEventListener('resize', styleYTIframe);
+
+    // Also fix every 500ms for first 5 seconds (iframe may take time to appear)
+    var fixCount = 0;
+    var fixInterval = setInterval(function() {
+      styleYTIframe();
+      fixCount++;
+      if (fixCount > 10) clearInterval(fixInterval);
+    }, 500);
   });
 
   // ═══════════════════════════════════════════
