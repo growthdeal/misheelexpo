@@ -1771,7 +1771,7 @@
       <ul class="footer-links">
         <li><a href="#">Бидний тухай</a></li>
         <li><a href="#">Мэдээ мэдээлэл</a></li>
-        <li><a href="#">, видео</a></li>
+        <li><a href="#">Зураг, видео</a></li>
         <li><a href="#">Холбоо барих</a></li>
         <li><a href="#">misheelexpo.mn ↗</a></li>
       </ul>
@@ -1794,14 +1794,14 @@
   // ║  event1..event6 дотор зурагны URL-ийг оруулна.         ║
   // ║  Хоосон үлдвэл харанхуй фон харагдана.                 ║
   // ╚══════════════════════════════════════════════════════════╝
- const EVENT_IMAGES = {
-  event1: "https://drive.google.com/uc?export=view&id=1kSLZBTewVVj9SeB5UgBjiX7h17InwXgh",
-  event2: "https://drive.google.com/uc?export=view&id=1hK2KZfnnk0Ip-0i_RZuG4j_jmMr0oZyN",
-  event3: "https://drive.google.com/uc?export=view&id=1EReBnjQPWwzwqROzJ_LWDhYWMXRSHcpT",
-  event4: "https://drive.google.com/uc?export=view&id=1T3bIIl5eHERxcr45YOUXkc-8DU27kb8B",
-  event5: "https://drive.google.com/uc?export=view&id=1gVEZBIS5h_W3N4is-hNJQ1HrnVlxPU73",
-  event6: "https://drive.google.com/uc?export=view&id=1R4pBEavH2f5mZV1pxaLKhkZ9_vpQs4xE",
-};
+  const EVENT_IMAGES = {
+    event1: "https://i.imgur.com/UrWwqZP.jpeg",  // Олон Улсын Бизнесийн Үзэсгэлэн
+    event2: "https://i.imgur.com/FHvYp1Z.jpeg",  // Wedding Expo
+    event3: "https://i.imgur.com/MkQXvIv.png",   // Kids Expo
+    event4: "https://i.imgur.com/6tIftVK.jpeg",  // Horica Conference
+    event5: "https://i.imgur.com/9ekAwmB.jpeg",  // Health & Beauty Expo
+    event6: "https://i.imgur.com/wdQYrN2.jpeg",  // Naadam & Travel Expo
+  };
 
   // Auto-inject images
   window.addEventListener('DOMContentLoaded', function() {
@@ -2017,6 +2017,133 @@
       document.querySelectorAll('.hero-dot').forEach(d => d.classList.remove('active'));
       dot.classList.add('active');
     });
+  });
+</script>
+
+
+<!-- ═══ ЗУРАГ УДИРДАХ САМБАР (Admin Panel) ═══ -->
+<div id="adminToggleBtn" onclick="document.getElementById('adminPanel').classList.toggle('open')" style="position:fixed;bottom:80px;right:24px;z-index:9999;background:#c41e3a;color:white;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;box-shadow:0 4px 20px rgba(196,30,58,0.5);" title="Зураг солих">🖼️</div>
+
+<div id="adminPanel" style="position:fixed;top:0;right:-420px;width:400px;height:100vh;background:#111827;z-index:9998;box-shadow:-8px 0 40px rgba(0,0,0,0.4);transition:right 0.3s ease;overflow-y:auto;display:flex;flex-direction:column;">
+  <div style="padding:24px;border-bottom:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;">
+    <div>
+      <div style="color:white;font-size:16px;font-weight:700;font-family:Montserrat,sans-serif;">🖼️ Зураг Солих</div>
+      <div style="color:rgba(255,255,255,0.4);font-size:11px;margin-top:2px;">Зургаа чирж оруулах эсвэл товшиж сонгоно</div>
+    </div>
+    <div onclick="document.getElementById('adminPanel').classList.remove('open')" style="color:rgba(255,255,255,0.5);cursor:pointer;font-size:20px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,0.08);">✕</div>
+  </div>
+  <div style="padding:20px;display:flex;flex-direction:column;gap:16px;">
+    <div class="img-upload-row" data-target="event1-img" data-label="Арга хэмжээ 1 — Олон Улсын Бизнесийн Үзэсгэлэн"></div>
+    <div class="img-upload-row" data-target="event2-img" data-label="Арга хэмжээ 2 — Wedding Expo"></div>
+    <div class="img-upload-row" data-target="event3-img" data-label="Арга хэмжээ 3 — Kids Expo"></div>
+    <div class="img-upload-row" data-target="event4-img" data-label="Арга хэмжээ 4 — Horica Conference"></div>
+    <div class="img-upload-row" data-target="event5-img" data-label="Арга хэмжээ 5 — Health & Beauty Expo"></div>
+    <div class="img-upload-row" data-target="event6-img" data-label="Арга хэмжээ 6 — Naadam & Travel Expo"></div>
+  </div>
+  <div style="padding:16px 20px;margin-top:auto;border-top:1px solid rgba(255,255,255,0.08);">
+    <div style="color:rgba(255,255,255,0.35);font-size:11px;line-height:1.6;">⚠️ Зургууд энэ browser-д хадгалагдана. Хэрэв өөр компьютерт нээвэл дахин upload хийх хэрэгтэй.</div>
+  </div>
+</div>
+
+<style>
+  #adminPanel.open { right: 0; }
+  .img-upload-row {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .img-upload-row:hover { border-color: rgba(196,30,58,0.5); background: rgba(196,30,58,0.08); }
+  .img-upload-row input[type=file] { display:none; }
+  .img-upload-label { display:flex; align-items:center; gap:12px; cursor:pointer; }
+  .img-upload-thumb { width:56px; height:42px; border-radius:4px; object-fit:cover; background:#1f2937; flex-shrink:0; border:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .img-upload-thumb img { width:100%; height:100%; object-fit:cover; }
+  .img-upload-thumb-placeholder { color:rgba(255,255,255,0.2); font-size:18px; }
+  .img-upload-info { flex:1; }
+  .img-upload-name { color:rgba(255,255,255,0.85); font-size:12px; font-weight:600; font-family:Montserrat,sans-serif; line-height:1.4; }
+  .img-upload-status { color:rgba(255,255,255,0.35); font-size:11px; margin-top:3px; }
+  .img-upload-btn { color:#c41e3a; font-size:11px; font-weight:700; letter-spacing:0.5px; }
+</style>
+
+<script>
+  // ═══ ADMIN PANEL LOGIC ═══
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.img-upload-row').forEach(function(row) {
+      var target = row.dataset.target;
+      var label = row.dataset.label;
+      var savedKey = 'imgupload_' + target;
+
+      // Build UI
+      row.innerHTML =
+        '<label class="img-upload-label">' +
+          '<div class="img-upload-thumb"><img id="thumb_' + target + '" src="" style="display:none"><span class="img-upload-thumb-placeholder">📷</span></div>' +
+          '<div class="img-upload-info">' +
+            '<div class="img-upload-name">' + label + '</div>' +
+            '<div class="img-upload-status" id="status_' + target + '">Зураг сонгоогүй</div>' +
+          '</div>' +
+          '<div class="img-upload-btn">↑ Upload</div>' +
+          '<input type="file" accept="image/*" id="file_' + target + '">' +
+        '</label>';
+
+      // Load saved image
+      try {
+        var saved = localStorage.getItem(savedKey);
+        if (saved) applyImage(target, saved);
+      } catch(e) {}
+
+      // File input change
+      row.querySelector('input[type=file]').addEventListener('change', function(e) {
+        var file = e.target.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function(ev) {
+          var dataUrl = ev.target.result;
+          applyImage(target, dataUrl);
+          try { localStorage.setItem(savedKey, dataUrl); } catch(e) {
+            alert('Зураг хэт том байна. Жижигрүүлж дахин оролдоно уу.');
+          }
+        };
+        reader.readAsDataURL(file);
+      });
+
+      // Click row = trigger file input
+      row.addEventListener('click', function() {
+        row.querySelector('input[type=file]').click();
+      });
+
+      // Drag & drop
+      row.addEventListener('dragover', function(e) { e.preventDefault(); row.style.borderColor='#c41e3a'; });
+      row.addEventListener('dragleave', function() { row.style.borderColor=''; });
+      row.addEventListener('drop', function(e) {
+        e.preventDefault();
+        row.style.borderColor='';
+        var file = e.dataTransfer.files[0];
+        if (!file || !file.type.startsWith('image/')) return;
+        var reader = new FileReader();
+        reader.onload = function(ev) {
+          var dataUrl = ev.target.result;
+          applyImage(target, dataUrl);
+          try { localStorage.setItem(savedKey, dataUrl); } catch(e) {}
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+
+    function applyImage(target, src) {
+      // Apply to event cards
+      document.querySelectorAll('.' + target).forEach(function(img) {
+        img.src = src;
+        img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;';
+      });
+      // Update thumb
+      var thumb = document.getElementById('thumb_' + target);
+      if (thumb) { thumb.src = src; thumb.style.display = 'block'; thumb.previousElementSibling && (thumb.previousElementSibling.style.display='none'); }
+      var status = document.getElementById('status_' + target);
+      if (status) status.innerHTML = '<span style="color:#4ade80">✓ Зураг оруулагдсан</span>';
+    }
   });
 </script>
 
