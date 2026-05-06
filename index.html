@@ -55,9 +55,9 @@
 
   /* ─── NAV ─── */
   nav {
-    background: var(--white);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-    position: sticky;
+    background: transparent;
+    box-shadow: none;
+    position: fixed;
     top: 0;
     z-index: 1000;
   }
@@ -89,14 +89,14 @@
   .nav-logo-text .main {
     font-size: 20px;
     font-weight: 700;
-    color: var(--primary);
+    color: #ffffff;
     letter-spacing: 1px;
   }
 
   .nav-logo-text .sub {
     font-size: 10px;
     font-weight: 500;
-    color: var(--accent);
+    color: #ffffff;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
@@ -217,7 +217,7 @@
   .hero-center-logo img {
     width: clamp(280px, 42vw, 560px);
     height: auto;
-    filter: drop-shadow(0 4px 24px rgba(0,0,0,0.5));
+    mix-blend-mode: screen;
     opacity: 1;
   }
 
@@ -253,7 +253,7 @@
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.1);
   }
 
   .hero-content {
@@ -2016,21 +2016,17 @@
     function styleYTIframe() {
       var iframe = document.querySelector('#heroBgVideo iframe');
       if (iframe) {
-        // Бүтэн hero-г дүүргэх — aspect ratio 16:9 хадгалан, хамгийн богино тал нь 100% байхаар
         var heroEl = document.querySelector('.hero');
         var vw = heroEl ? heroEl.offsetWidth : window.innerWidth;
         var vh = heroEl ? heroEl.offsetHeight : window.innerHeight;
 
         var iframeW, iframeH;
-        // 16:9 харьцаагаар тооцно
         if (vw / vh > 16 / 9) {
-          // Дэлгэц өргөн — өргөнөөр дүүргэнэ
-          iframeW = vw;
-          iframeH = vw * 9 / 16;
+          iframeW = vw + 8;
+          iframeH = Math.ceil((vw + 8) * 9 / 16);
         } else {
-          // Дэлгэц өндөр — өндрөөр дүүргэнэ
-          iframeH = vh;
-          iframeW = vh * 16 / 9;
+          iframeH = vh + 8;
+          iframeW = Math.ceil((vh + 8) * 16 / 9);
         }
 
         iframe.style.cssText = [
@@ -2038,8 +2034,8 @@
           'top:50%',
           'left:50%',
           'transform:translate(-50%,-50%)',
-          'width:' + Math.ceil(iframeW) + 'px',
-          'height:' + Math.ceil(iframeH) + 'px',
+          'width:' + iframeW + 'px',
+          'height:' + iframeH + 'px',
           'border:none',
           'pointer-events:none',
           'z-index:0'
