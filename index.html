@@ -1947,12 +1947,19 @@ document.addEventListener('DOMContentLoaded', function() {
   function initMp4(){
     var path = localStorage.getItem('hero_bg_video_path');
     var name = localStorage.getItem('hero_bg_video_name');
-    if(path){
-      showActive(name||path);
-      applyVideo(path);
-      var rb = document.getElementById('cms-mp4-remove-btn');
-      if(rb) rb.style.display='inline-block';
+    // blob:// URL нь refresh хийхэд устдаг тул ашиглахгүй
+    if(path && path.indexOf('blob:') === 0){
+      localStorage.removeItem('hero_bg_video_path');
+      localStorage.removeItem('hero_bg_video_name');
+      path = null;
     }
+    // Хатуу замыг ашиглах
+    var hardPath = 'videos/misheel.mp4';
+    var usePath = path || hardPath;
+    showActive(usePath.split('/').pop());
+    applyVideo(usePath);
+    var rb = document.getElementById('cms-mp4-remove-btn');
+    if(rb) rb.style.display='inline-block';
   }
 
   function showActive(name){
