@@ -251,7 +251,18 @@
   <span style="font-size:12px;color:#c41e3a;">© 2026 Мишээл Экспо. Бүх эрх хуулиар хамгаалагдсан. · Улаанбаатар, Монгол</span>
   <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:11px;color:rgba(255,255,255,0.4);">Вэбсайт, сошиал медиа: <a href="https://growthdeal.mn" target="_blank" style="color:rgba(255,255,255,0.5);text-decoration:none;">Growth Deal Ltd</a></span><button id="cmsOpenBtn" title="Админ панель">🔒 Админ</button></div>
 </div>
-</footer><button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button><div id="cmsLoginModal"><div id="cmsLoginBox"><div class="cms-login-logo"><div>🛠️</div><div>МИШЭЭЛ ЭКСПО <span>CMS</span></div></div><label class="cms-login-label">Нууц үг</label><input class="cms-login-input" type="password" id="cmsPasswordInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkCmsPassword()"><button class="cms-login-btn" onclick="checkCmsPassword()">Нэвтрэх →</button><div class="cms-login-error" id="cmsLoginError"></div><div class="cms-login-attempts" id="cmsLoginAttempts"></div></div></div><div id="cmsOverlay" onclick="closeCMS()"></div><div id="cmsPanel"><div class="cms-header"><div><div class="cms-header-title">🛠️ Мишээл Экспо CMS</div><div class="cms-header-sub">Вэбсайтын контентийг энд засна</div></div><button class="cms-close" onclick="closeCMS()">✕</button></div><div class="cms-tabs"><button class="cms-tab active" onclick="switchTab('hero', this)">🎬 Нүүр</button><button class="cms-tab" onclick="switchTab('events', this)">📅 Арга хэмжээ</button><button class="cms-tab" onclick="switchTab('stats', this)">📊 Статистик</button><button class="cms-tab" onclick="switchTab('ticker', this)">📢 Мэдэгдэл</button><button class="cms-tab" onclick="switchTab('contact', this)">📞 Холбоо</button><button class="cms-tab" onclick="switchTab('about', this)">🏢 Бидний тухай</button><button class="cms-tab" onclick="switchTab('brands', this)">🏷️ Брэндүүд</button><button class="cms-tab" onclick="switchTab('venue', this)">🏛️ Талбай</button><button class="cms-tab" onclick="switchTab('pastevents', this)">🗓️ Нийт</button><button class="cms-tab" onclick="switchTab('services', this)">🛠️ Үйлчилгээ</button><button class="cms-tab" onclick="switchTab('talbai', this)">🔗 Талбай</button></div><div class="cms-body"><div class="cms-tab-content active" id="tab-hero"><div class="cms-section-title">🎬 YouTube Арын Видео</div><div class="cms-field"><label class="cms-label">YouTube Линк эсвэл Video ID</label><input class="cms-input" id="cms-youtube-id" placeholder="https://youtube.com/watch?v=XXXXX эсвэл XXXXX"><div style="color:rgba(255,255,255,0.3);font-size:10px;margin-top:6px;line-height:1.6;"> Бүтэн линк буулгаж болно — автоматаар ID-г авна.<br> Жишээ: <span style="color:#c41e3a">youtube.com/watch?v=<strong>MYXT5-HOK40</strong></span></div></div><div id="cms-yt-preview" style="display:none;margin-bottom:12px;border-radius:6px;overflow:hidden;aspect-ratio:16/9;"><img id="cms-yt-thumb" src="" style="width:100%;height:100%;object-fit:cover;"></div><div class="cms-section-title">🎥 MP4 Арын Видео</div><div class="cms-field"><div id="cms-mp4-active" style="display:none;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:6px;padding:10px 12px;margin-bottom:10px;font-size:12px;color:#4ade80;"> ✓ Идэвхтэй: <strong id="cms-mp4-active-name"></strong></div><label class="cms-label">MP4 файл сонгох</label><div id="cms-mp4-dropzone" style="border:2px dashed rgba(255,255,255,0.15);border-radius:8px;padding:20px 16px;text-align:center;cursor:pointer;position:relative;transition:border-color 0.2s;"><input type="file" id="cms-mp4-file" accept="video/mp4,video/webm" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;"><div style="font-size:26px;margin-bottom:6px;">📹</div><div style="color:rgba(255,255,255,0.6);font-size:12px;font-weight:600;">Файл сонгох эсвэл чирж тавих</div><div style="color:rgba(255,255,255,0.25);font-size:10px;margin-top:3px;">MP4, WebM — хэмжээний хязгаар байхгүй</div></div><div id="cms-mp4-progress" style="display:none;margin-top:8px;"><div style="background:rgba(255,255,255,0.08);border-radius:3px;height:5px;overflow:hidden;"><div id="cms-mp4-bar" style="height:100%;background:#c41e3a;width:0%;transition:width 0.2s;"></div></div><div id="cms-mp4-pct" style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:3px;text-align:center;"></div></div><video id="cms-mp4-preview" muted controls style="display:none;width:100%;border-radius:6px;margin-top:10px;max-height:150px;object-fit:cover;background:#000;"></video><div style="display:flex;gap:8px;margin-top:10px;"><button id="cms-mp4-save-btn" onclick="cmsSaveMp4()" style="display:none;background:#c41e3a;color:#fff;border:none;padding:8px 16px;border-radius:5px;font-size:12px;font-weight:600;cursor:pointer;">💾 Хадгалах</button><button id="cms-mp4-remove-btn" onclick="cmsRemoveMp4()" style="display:none;background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.3);padding:8px 16px;border-radius:5px;font-size:12px;cursor:pointer;">✕ Устгах</button></div><div style="color:rgba(255,255,255,0.2);font-size:10px;margin-top:6px;"> ⚠ Файл browser-д хадгалагдана. Сервер дээр байрлуулснаас хойш бүх хэрэглэгчид харагдана.
+</footer><button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button><div id="cmsLoginModal"><div id="cmsLoginBox"><div class="cms-login-logo"><div>🛠️</div><div>МИШЭЭЛ ЭКСПО <span>CMS</span></div></div><label class="cms-login-label">Нууц үг</label><input class="cms-login-input" type="password" id="cmsPasswordInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkCmsPassword()"><button class="cms-login-btn" onclick="checkCmsPassword()">Нэвтрэх →</button><div class="cms-login-error" id="cmsLoginError"></div><div class="cms-login-attempts" id="cmsLoginAttempts"></div></div></div><div id="cmsOverlay" onclick="closeCMS()"></div><div id="cmsPanel"><div class="cms-header"><div><div class="cms-header-title">🛠️ Мишээл Экспо CMS</div><div class="cms-header-sub">Вэбсайтын контентийг энд засна</div></div><button class="cms-close" onclick="closeCMS()">✕</button></div><div class="cms-tabs"><button class="cms-tab active" onclick="switchTab('hero', this)">🎬 Нүүр</button><button class="cms-tab" onclick="switchTab('events', this)">📅 Арга хэмжээ</button><button class="cms-tab" onclick="switchTab('stats', this)">📊 Статистик</button><button class="cms-tab" onclick="switchTab('ticker', this)">📢 Мэдэгдэл</button><button class="cms-tab" onclick="switchTab('contact', this)">📞 Холбоо</button><button class="cms-tab" onclick="switchTab('about', this)">🏢 Бидний тухай</button><button class="cms-tab" onclick="switchTab('brands', this)">🏷️ Брэндүүд</button><button class="cms-tab" onclick="switchTab('venue', this)">🏛️ Талбай</button><button class="cms-tab" onclick="switchTab('pastevents', this)">🗓️ Нийт</button><button class="cms-tab" onclick="switchTab('services', this)">🛠️ Үйлчилгээ</button><button class="cms-tab" onclick="switchTab('talbai', this)">🔗 Талбай</button></div><div class="cms-body"><div class="cms-tab-content active" id="tab-hero"><div class="cms-section-title">🎬 YouTube Арын Видео</div><div class="cms-field"><label class="cms-label">YouTube Линк эсвэл Video ID</label><input class="cms-input" id="cms-youtube-id" placeholder="https://youtube.com/watch?v=XXXXX эсвэл XXXXX"><div style="color:rgba(255,255,255,0.3);font-size:10px;margin-top:6px;line-height:1.6;"> Бүтэн линк буулгаж болно — автоматаар ID-г авна.<br> Жишээ: <span style="color:#c41e3a">youtube.com/watch?v=<strong>MYXT5-HOK40</strong></span></div></div><div id="cms-yt-preview" style="display:none;margin-bottom:12px;border-radius:6px;overflow:hidden;aspect-ratio:16/9;"><img id="cms-yt-thumb" src="" style="width:100%;height:100%;object-fit:cover;"></div><div class="cms-section-title">🎥 MP4 Арын Видео</div><div class="cms-field"><div id="cms-mp4-active" style="display:none;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:6px;padding:10px 12px;margin-bottom:10px;font-size:12px;color:#4ade80;"> ✓ Идэвхтэй: <strong id="cms-mp4-active-name"></strong></div><label class="cms-label">MP4 файл сонгох</label>
+<div style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);border-radius:6px;padding:8px 12px;margin-bottom:8px;font-size:11px;color:#fbbf24;line-height:1.6;">
+  ⚠️ <strong>Анхаарна уу:</strong> Видео файл браузерт хадгалахад хэт том байж болно (5MB хязгаар).<br>
+  <strong>Зөвлөмж:</strong> YouTube линк эсвэл доорх URL талбарыг ашиглана уу.
+</div>
+<div class="cms-field" style="margin-bottom:8px;">
+  <label class="cms-label" style="font-size:10px;color:rgba(255,255,255,0.35);">эсвэл видео URL оруулах (mp4, webm):</label>
+  <div style="display:flex;gap:6px;">
+    <input class="cms-input" id="cms-mp4-url-input" placeholder="https://example.com/video.mp4" style="flex:1;font-size:11px;">
+    <button onclick="cmsApplyMp4Url()" style="background:#c41e3a;color:#fff;border:none;padding:8px 12px;border-radius:5px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">Хэрэглэх</button>
+  </div>
+</div><div id="cms-mp4-dropzone" style="border:2px dashed rgba(255,255,255,0.15);border-radius:8px;padding:20px 16px;text-align:center;cursor:pointer;position:relative;transition:border-color 0.2s;"><input type="file" id="cms-mp4-file" accept="video/mp4,video/webm" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;"><div style="font-size:26px;margin-bottom:6px;">📹</div><div style="color:rgba(255,255,255,0.6);font-size:12px;font-weight:600;">Файл сонгох эсвэл чирж тавих</div><div style="color:rgba(255,255,255,0.25);font-size:10px;margin-top:3px;">MP4, WebM — хэмжээний хязгаар байхгүй</div></div><div id="cms-mp4-progress" style="display:none;margin-top:8px;"><div style="background:rgba(255,255,255,0.08);border-radius:3px;height:5px;overflow:hidden;"><div id="cms-mp4-bar" style="height:100%;background:#c41e3a;width:0%;transition:width 0.2s;"></div></div><div id="cms-mp4-pct" style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:3px;text-align:center;"></div></div><video id="cms-mp4-preview" muted controls style="display:none;width:100%;border-radius:6px;margin-top:10px;max-height:150px;object-fit:cover;background:#000;"></video><div style="display:flex;gap:8px;margin-top:10px;"><button id="cms-mp4-save-btn" onclick="cmsSaveMp4()" style="display:none;background:#c41e3a;color:#fff;border:none;padding:8px 16px;border-radius:5px;font-size:12px;font-weight:600;cursor:pointer;">💾 Хадгалах</button><button id="cms-mp4-remove-btn" onclick="cmsRemoveMp4()" style="display:none;background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.3);padding:8px 16px;border-radius:5px;font-size:12px;cursor:pointer;">✕ Устгах</button></div><div style="color:rgba(255,255,255,0.2);font-size:10px;margin-top:6px;"> ⚠ Файл browser-д хадгалагдана. Сервер дээр байрлуулснаас хойш бүх хэрэглэгчид харагдана.
 </div></div><div class="cms-section-title">✏️ Нүүр Хуудасны Текст</div><div class="cms-field"><label class="cms-label">Дээд гарчиг (eyebrow)</label><input class="cms-input" id="cms-hero-eyebrow" placeholder="Монголын тэргүүлэх үзэсгэлэнгийн төв"></div><div class="cms-field"><label class="cms-label">Үндсэн гарчиг (H1)</label><input class="cms-input" id="cms-hero-title" placeholder="Таны бизнесийн алтан гарц"></div><div class="cms-field"><label class="cms-label">Дэд тайлбар</label><textarea class="cms-textarea" id="cms-hero-sub" placeholder="2002 оноос хойш..."></textarea></div><button class="cms-save-btn" onclick="saveHero()">💾 Нүүр хуудас хадгалах</button></div><div class="cms-tab-content" id="tab-events"><div id="cms-events-list"></div></div><div class="cms-tab-content" id="tab-stats"><div class="cms-section-title">📊 Статистик тоонууд</div><div id="cms-stats-list"></div><button class="cms-save-btn" onclick="saveStats()">💾 Статистик хадгалах</button></div><div class="cms-tab-content" id="tab-ticker"><div class="cms-section-title">📢 Дээрх гүйж байгаа мэдэгдлүүд</div><div id="cms-ticker-tags"></div><div class="cms-ticker-add"><input class="cms-input" id="cms-ticker-new" placeholder="Шинэ мэдэгдэл нэмэх..."><button onclick="addTickerItem()">+ Нэмэх</button></div><button class="cms-save-btn" onclick="saveTicker()">💾 Мэдэгдэл хадгалах</button></div><div class="cms-tab-content" id="tab-contact"><div class="cms-section-title">📞 Холбоо барих мэдээлэл</div><div class="cms-field"><label class="cms-label">И-мэйл хаяг</label><input class="cms-input" id="cms-contact-email" placeholder="info@misheelexpo.mn"></div><div class="cms-field"><label class="cms-label">Утасны дугаар</label><input class="cms-input" id="cms-contact-phone" placeholder="+976 9911-XXXX"></div><div class="cms-field"><label class="cms-label">Хаяг</label><input class="cms-input" id="cms-contact-address" placeholder="Улаанбаатар, Сүхбаатар дүүрэг"></div><div class="cms-field"><label class="cms-label">Ажлын цаг</label><textarea class="cms-textarea" id="cms-contact-hours" placeholder="Даваа–Баасан: 09:00–18:00&#10;Бямба: 10:00–16:00"></textarea></div><button class="cms-save-btn" onclick="saveContact()">💾 Холбоо барих хадгалах</button></div><div class="cms-tab-content" id="tab-about"><div class="cms-section-title">🏢 "Бидний тухай" хэсгийн зураг</div><div class="cms-img-upload" id="aboutUploadArea" onclick="document.getElementById('cmsAboutImgFile').click()" style="margin-bottom:16px;"><div class="cms-img-thumb" id="aboutThumbWrap"><span>🖼️</span><img id="aboutThumbImg" src="" style="display:none;width:100%;height:100%;object-fit:cover;"></div><div class="cms-img-info"><div class="cms-img-name">Зураг солих</div><div class="cms-img-status" id="aboutImgStatus">Товшиж зураг сонгох эсвэл чирж оруулах</div></div><input type="file" id="cmsAboutImgFile" accept="image/*" onchange="handleAboutImg(this)"></div><div id="aboutImgPreviewWrap" style="display:none;border-radius:8px;overflow:hidden;aspect-ratio:4/3;margin-bottom:12px;"><img id="aboutImgPreview" src="" style="width:100%;height:100%;object-fit:cover;"></div><button class="cms-save-btn" onclick="saveAboutImg()" data-orig="💾 Зураг хадгалах">💾 Зураг хадгалах</button><div style="margin-top:12px;color:rgba(255,255,255,0.25);font-size:11px;">Зургийг "Бидний тухай" хэсгийн зүүн талд том хэлбэрээр харагдана.</div>
 <div id="about-poster-cms"></div>
 </div><div class="cms-tab-content" id="tab-brands"><div class="cms-section-title">🏷️ Итгэдэг Брэндүүдийн Лого</div><div style="color:rgba(255,255,255,0.35);font-size:11px;margin-bottom:14px;">10 брэндийн лого оруулна. Товшиж зураг сонгоно уу.</div><div id="cms-brands-list"></div></div><div class="cms-tab-content" id="tab-venue"><div class="cms-section-title">🏛️ Талбайн мэдээлэл</div><div class="cms-field"><label class="cms-label">Гарчиг</label><input class="cms-input" id="cms-venue-title" placeholder="Дэлхийн Стандартын Орон Зай"></div><div class="cms-field"><label class="cms-label">Тайлбар</label><textarea class="cms-textarea" id="cms-venue-desc" placeholder="Олон улсын стандарттай дэд бүтэц..."></textarea></div><div class="cms-section-title">📊 Техник үзүүлэлтүүд</div><div class="cms-row"><div class="cms-field"><label class="cms-label">Spec 1 — Тоо</label><input class="cms-input" id="cms-vspec1-val" placeholder="2,511"></div><div class="cms-field"><label class="cms-label">Spec 1 — Нэр</label><input class="cms-input" id="cms-vspec1-lbl" placeholder="м² нийт талбай"></div></div><div class="cms-row"><div class="cms-field"><label class="cms-label">Spec 2 — Тоо</label><input class="cms-input" id="cms-vspec2-val" placeholder="1,200"></div><div class="cms-field"><label class="cms-label">Spec 2 — Нэр</label><input class="cms-input" id="cms-vspec2-lbl" placeholder="суудлын хүчин чадал"></div></div><div class="cms-row"><div class="cms-field"><label class="cms-label">Spec 3 — Тоо</label><input class="cms-input" id="cms-vspec3-val" placeholder="6"></div><div class="cms-field"><label class="cms-label">Spec 3 — Нэр</label><input class="cms-input" id="cms-vspec3-lbl" placeholder="үзэсгэлэнгийн зал"></div></div><div class="cms-row"><div class="cms-field"><label class="cms-label">Spec 4 — Тоо</label><input class="cms-input" id="cms-vspec4-val" placeholder="24/7"></div><div class="cms-field"><label class="cms-label">Spec 4 — Нэр</label><input class="cms-input" id="cms-vspec4-lbl" placeholder="аюулгүй байдал"></div></div><button class="cms-save-btn" onclick="saveVenueText()" style="margin-bottom:16px;">💾 Мэдээлэл хадгалах</button><div class="cms-section-title">🖼️ Талбайн зургууд</div><div style="color:rgba(255,255,255,0.35);font-size:11px;margin-bottom:12px;">Товшиж зураг оруулна. Хуудсан дээр шууд харагдана.</div><div id="cms-venue-imgs"></div></div><div class="cms-tab-content" id="tab-pastevents">
@@ -1280,6 +1291,7 @@ if(m) { var el=card.querySelector('.event-date-badge .month'); if(el) el.textCon
 });
 (function(){
 var pendingUrl = null;
+var pendingName = null;
 function initMp4(){
 var path = localStorage.getItem('hero_bg_video_path');
 var name = localStorage.getItem('hero_bg_video_name');
@@ -1312,12 +1324,24 @@ if(window.ytPlayer&&window.ytPlayer.stopVideo){try{window.ytPlayer.stopVideo();}
 }
 window.cmsSaveMp4 = function(){
 if(!pendingUrl) return;
-localStorage.setItem('hero_bg_video_path', pendingUrl);
-localStorage.setItem('hero_bg_video_name', pendingUrl.split('/').pop().split('?')[0]);
-showActive(pendingUrl.split('/').pop().split('?')[0]);
-document.getElementById('cms-mp4-save-btn').style.display='none';
-document.getElementById('cms-mp4-remove-btn').style.display='inline-block';
-pendingUrl=null;
+var btn = document.getElementById('cms-mp4-save-btn');
+if(btn) { btn.textContent='Хадгалж байна...'; btn.disabled=true; }
+try {
+  localStorage.setItem('hero_bg_video_path', pendingUrl);
+  localStorage.setItem('hero_bg_video_name', pendingName || 'video.mp4');
+  showActive(pendingName || 'video.mp4');
+  if(btn) { btn.style.display='none'; btn.textContent='💾 Хадгалах'; btn.disabled=false; }
+  document.getElementById('cms-mp4-remove-btn').style.display='inline-block';
+  pendingUrl=null; pendingName=null;
+} catch(e) {
+  if(btn) { btn.textContent='💾 Хадгалах'; btn.disabled=false; }
+  var pct=document.getElementById('cms-mp4-pct');
+  var sizeMB = pendingUrl ? Math.round(pendingUrl.length/1024/1024*10)/10 : 0;
+  if(pct) {
+    pct.textContent='❌ Видео файл хэт том байна ('+(sizeMB)+'MB base64). YouTube линк ашиглана уу эсвэл видеог гадаад хостингт байрлуулж URL тавина уу.';
+    pct.style.color='#f87171';
+  }
+}
 };
 window.cmsRemoveMp4 = function(){
 localStorage.removeItem('hero_bg_video_path');
@@ -1350,15 +1374,26 @@ var prog=document.getElementById('cms-mp4-progress');
 var bar=document.getElementById('cms-mp4-bar');
 var pct=document.getElementById('cms-mp4-pct');
 if(prog) prog.style.display='block';
-var url=URL.createObjectURL(file);
-pendingUrl=url;
-if(bar) bar.style.width='100%';
-if(pct) pct.textContent='✓ '+file.name+' ('+sizeMB+'MB)';
-var preview=document.getElementById('cms-mp4-preview');
-if(preview){preview.src=url;preview.style.display='block';}
-applyVideo(url);
-var sb=document.getElementById('cms-mp4-save-btn');
-if(sb) sb.style.display='inline-block';
+if(bar) bar.style.width='30%';
+if(pct) pct.textContent='Уншиж байна... ('+sizeMB+'MB)';
+// Read as base64 so it persists in localStorage
+var reader = new FileReader();
+reader.onload = function(ev) {
+  var dataUrl = ev.target.result;
+  pendingUrl = dataUrl;
+  pendingName = file.name;
+  if(bar) bar.style.width='100%';
+  if(pct) pct.textContent='✓ '+file.name+' ('+sizeMB+'MB) — Хадгалах товч дарна уу';
+  var preview=document.getElementById('cms-mp4-preview');
+  if(preview){preview.src=dataUrl;preview.style.display='block';}
+  applyVideo(dataUrl);
+  var sb=document.getElementById('cms-mp4-save-btn');
+  if(sb) sb.style.display='inline-block';
+};
+reader.onerror = function() {
+  if(pct) { pct.textContent='❌ Алдаа гарлаа.'; pct.style.color='#f87171'; }
+};
+reader.readAsDataURL(file);
 });
 var dz=document.getElementById('cms-mp4-dropzone');
 if(dz){
@@ -1370,7 +1405,14 @@ dz.style.borderColor='rgba(255,255,255,0.15)';
 dz.style.background='';
 var file=e.dataTransfer.files[0];
 if(file&&fileInput){
-Object.defineProperty(fileInput,'files',{value:e.dataTransfer.files,writable:false});
+// Trigger via DataTransfer to use our updated change handler
+try {
+  var dt = new DataTransfer();
+  dt.items.add(file);
+  fileInput.files = dt.files;
+} catch(ex) {
+  Object.defineProperty(fileInput,'files',{value:e.dataTransfer.files,writable:false});
+}
 fileInput.dispatchEvent(new Event('change'));
 }
 });
@@ -2402,6 +2444,26 @@ function detailSlide(dir) {
 function detailGoSlide(i) {
   window._detailIdx = i;
   detailSlide(0);
+}
+
+function cmsApplyMp4Url() {
+  var input = document.getElementById('cms-mp4-url-input');
+  if (!input) return;
+  var url = input.value.trim();
+  if (!url) { input.style.borderColor='#f87171'; setTimeout(function(){input.style.borderColor='';},2000); return; }
+  pendingUrl = url;
+  pendingName = url.split('/').pop().split('?')[0] || 'video.mp4';
+  // Show preview
+  var preview = document.getElementById('cms-mp4-preview');
+  if (preview) { preview.src = url; preview.style.display = 'block'; }
+  applyVideo(url);
+  var prog = document.getElementById('cms-mp4-progress');
+  var pct  = document.getElementById('cms-mp4-pct');
+  var bar  = document.getElementById('cms-mp4-bar');
+  if (prog) prog.style.display = 'block';
+  if (bar)  bar.style.width = '100%';
+  if (pct)  pct.textContent = '✓ URL тохируулагдлаа — Хадгалах товч дарна уу';
+  document.getElementById('cms-mp4-save-btn').style.display = 'inline-block';
 }
 </script>
 
