@@ -515,7 +515,7 @@ try {
 const saved = localStorage.getItem('lang');
 if (saved && translations[saved]) setLang(saved);
 } catch(e) {}
-var YT_VIDEO_ID = localStorage.getItem('cms_youtube_id') || 'MYXT5-HOK40';
+var YT_VIDEO_ID = localStorage.getItem('cms_youtube_id') || 'bwcBeHMn-_U';
 var ytPlayer;
 var ytScript = document.createElement('script');
 ytScript.src = 'https://www.youtube.com/iframe_api';
@@ -919,7 +919,7 @@ preview.style.display = 'none';
 }
 }
 function initHero() {
-var savedId = ls('cms_youtube_id') || 'MYXT5-HOK40';
+var savedId = ls('cms_youtube_id') || 'bwcBeHMn-_U';
 document.getElementById('cms-youtube-id').value = savedId;
 showYTPreview(savedId);
 document.getElementById('cms-hero-eyebrow').value = ls('cms_hero_eyebrow') || '';
@@ -2525,7 +2525,7 @@ function exportHTMLWithCMS() {
     var ytId = localStorage.getItem('cms_youtube_id');
     if (ytId) {
       html = html.replace(
-        "var YT_VIDEO_ID = localStorage.getItem('cms_youtube_id') || 'MYXT5-HOK40';",
+        "var YT_VIDEO_ID = localStorage.getItem('cms_youtube_id') || 'bwcBeHMn-_U';",
         "var YT_VIDEO_ID = '" + ytId.replace(/\\/g,'\\\\').replace(/'/g,"\\'") + "';"
       );
     }
