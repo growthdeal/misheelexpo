@@ -350,7 +350,156 @@
   <input class="cms-input" id="cms-talbai-fill-input" placeholder="https://..." value="">
 </div>
 <button class="cms-save-btn" onclick="saveTalbaiFillLink()" data-orig="💾 Хадгалах" style="width:100%;">💾 Хадгалах</button>
-</div><div class="cms-footer-note">⚠️ Өгөгдөл энэ browser-д хадгалагдана. Сайт сервер дээр байрласны дараа бүгд харагдана.</div></div>
+</div><div class="cms-footer-note" style="padding:16px 20px;border-top:2px solid rgba(34,197,94,0.3);display:flex;flex-direction:column;gap:8px;">
+<button onclick="exportHTMLWithCMS()" style="width:100%;padding:11px;background:linear-gradient(135deg,#16a34a,#15803d);color:white;border:none;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Montserrat',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;">📥 HTML файл татаж авах (бүх засвартай)</button>
+<div style="color:rgba(255,255,255,0.25);font-size:10px;text-align:center;">Засварлаад энэ товчийг дарна → татаж авсан файлыг сервер дээр байршуулна</div>
+</div></div>
+<script>
+function exportHTMLWithCMS() {
+  var html = document.documentElement.outerHTML;
+  
+  // === CONTACT ===
+  var email = localStorage.getItem('cms_contact_email');
+  var phone = localStorage.getItem('cms_contact_phone');
+  var address = localStorage.getItem('cms_contact_address');
+  var hours = localStorage.getItem('cms_contact_hours');
+  
+  // === YOUTUBE VIDEO ===
+  var ytId = localStorage.getItem('cms_youtube_id');
+  
+  // === HERO TEXT ===
+  var heroEyebrow = localStorage.getItem('cms_hero_eyebrow');
+  var heroTitle = localStorage.getItem('cms_hero_title');
+  var heroSub = localStorage.getItem('cms_hero_sub');
+
+  // Inject contact values into HTML defaults
+  if (email) {
+    html = html.replace(/info@misheelexpo\.mn/g, email);
+  }
+  if (phone) {
+    // Replace phone in contact block
+    html = html.replace(/href="tel:[^"]*"/g, 'href="tel:' + phone.replace(/\s/g,'') + '"');
+    html = html.replace(/\+976 7011-2511/g, phone);
+  }
+  if (address) {
+    html = html.replace(/Мишээл Экспо, Сүхбаатар дүүрэг,<br>Улаанбаатар, Монгол/g, address.replace(/
+/g,'<br>'));
+  }
+  if (hours) {
+    html = html.replace(/Даваа–Баасан: 09:00–18:00<br>Бямба: 10:00–16:00/g, hours.replace(/
+/g,'<br>'));
+  }
+  
+  // Inject YouTube video ID
+  if (ytId) {
+    html = html.replace(/var YT_VIDEO_ID = localStorage\.getItem\('cms_youtube_id'\) \|\| '[^']*';/, 
+      "var YT_VIDEO_ID = '" + ytId.replace(/'/g,"\'") + "';");
+  }
+
+  // Inject stats
+  for (var i = 1; i <= 4; i++) {
+    var sNum = localStorage.getItem('cms_stat' + i + '_num');
+    var sLbl = localStorage.getItem('cms_stat' + i + '_lbl');
+    if (sNum) {
+      // Update default stat values in HTML (a simple approach)
+    }
+  }
+
+  // === BRAND LOGOS (base64 embed) ===
+  for (var b = 1; b <= 10; b++) {
+    var brandData = localStorage.getItem('cms_brand_' + b);
+    if (brandData) {
+      // Replace the brand img src
+      var re = new RegExp('(id="brandImg' + b + '" src=")[^"]*(")', 'g');
+      html = html.replace(re, '$1' + brandData + '$2');
+      // Make it visible: display:none -> display:block
+      var re2 = new RegExp('(id="brandImg' + b + '"[^>]*style="[^"]*)(display:none)([^"]*")', 'g');
+      html = html.replace(re2, '$1display:block$3');
+      // Hide placeholder
+      var re3 = new RegExp('(id="brandPlaceholder' + b + '"[^>]*style=")([^"]*")', 'g');
+      html = html.replace(re3, '$1display:none;"');
+    }
+  }
+  
+  // === VENUE IMAGES (base64 embed) ===
+  for (var v = 1; v <= 3; v++) {
+    var venueData = localStorage.getItem('cms_venue_img_' + v);
+    if (venueData) {
+      var re = new RegExp('(id="venueImgEl' + v + '" src=")[^"]*(")', 'g');
+      html = html.replace(re, '$1' + venueData + '$2');
+      var re2 = new RegExp('(id="venueImgEl' + v + '"[^>]*style="[^"]*)(display:none)([^"]*")', 'g');
+      html = html.replace(re2, '$1display:block$3');
+    }
+  }
+  
+  // === ABOUT IMAGE ===
+  var aboutImg = localStorage.getItem('cms_about_img');
+  if (aboutImg) {
+    // inject into about section
+    html = html.replace(/(id="aboutMainImg"[^>]*src=")[^"]*(")/g, '$1' + aboutImg + '$2');
+  }
+  
+  // === PAST EVENTS ===
+  var pastEventsRaw = localStorage.getItem('cms_past_events');
+  if (pastEventsRaw) {
+    // Inject as a JS variable so they load on refresh
+    html = html.replace(
+      /var YT_VIDEO_ID/,
+      'var CMS_PAST_EVENTS_PRELOAD = ' + pastEventsRaw + ';
+var YT_VIDEO_ID'
+    );
+    // Also patch loadPastEvents to use preloaded data if localStorage is empty
+    html = html.replace(
+      /try { return JSON.parse\(localStorage.getItem\('cms_past_events'\) \|\| '\[\]'\); } catch\(e\) { return \[\]; }/,
+      "try { var d = JSON.parse(localStorage.getItem('cms_past_events') || '[]'); return d.length ? d : (typeof CMS_PAST_EVENTS_PRELOAD !== 'undefined' ? CMS_PAST_EVENTS_PRELOAD : []); } catch(e) { return typeof CMS_PAST_EVENTS_PRELOAD !== 'undefined' ? CMS_PAST_EVENTS_PRELOAD : []; }"
+    );
+  }
+
+  // === TICKER ===
+  var tickerRaw = localStorage.getItem('cms_ticker');
+  if (tickerRaw) {
+    try {
+      var items = JSON.parse(tickerRaw);
+      if (items && items.length) {
+        var inner = document.getElementById('tickerInner');
+        if (inner) {
+          html = html.replace(
+            /<div class="ticker" id="tickerInner">[\s\S]*?<\/div>(?=\s*<\/div>)/,
+            '<div class="ticker" id="tickerInner">' + items.concat(items).map(function(t){ return '<span class="ticker-item">' + t.replace(/</g,'&lt;') + '</span>'; }).join('') + '</div>'
+          );
+        }
+      }
+    } catch(e){}
+  }
+  
+  // === HERO TEXT INJECT ===
+  if (heroEyebrow) {
+    html = html.replace(/(<div class="hero-eyebrow"[^>]*>)[^<]*(<\/div>)/, '$1' + heroEyebrow + '$2');
+  }
+  
+  // === STATS ===
+  var statNums  = ['100,000','40','1,200','2,511'];
+  var statUnits = ['+','+','+','м²'];
+  for (var s = 1; s <= 4; s++) {
+    var sn = localStorage.getItem('cms_stat' + s + '_num');
+    if (sn) {
+      var re = new RegExp('(data-cms="stat' + s + '-num">[^<]*?)(</span>)', 'g');
+      html = html.replace(re, 'data-cms="stat' + s + '-num">' + sn + '</span>');
+    }
+  }
+  
+  // Create download
+  var blob = new Blob([html], {type:'text/html;charset=utf-8'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'misheel_expo_updated.html';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 2000);
+}
+</script>
+
 <script>
 const EVENT_IMAGES = {
 event1: "https://i.imgur.com/UrWwqZP.jpeg",  // Олон Улсын Бизнесийн Үзэсгэлэн
