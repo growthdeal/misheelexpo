@@ -973,6 +973,7 @@ container.innerHTML += '<div class="cms-event-block">' +
 '<div class="cms-img-thumb" id="thumb_' + ev.key + '"><span>🖼️</span><img id="thumbimg_' + ev.key + '" src=""></div>' +
 '<div class="cms-img-info"><div class="cms-img-name">Зураг солих</div><div class="cms-img-status" id="imgstatus_' + ev.key + '">Товшиж зураг сонгох</div></div>' +
 '<input type="file" accept="image/*" id="file_' + ev.key + '" onchange="handleEvImg(this,\'' + ev.key + '\',\'' + ev.imgClass + '\')">' +
+'<div class="cms-field" style="margin-top:6px;"><label class="cms-label">🔗 Зургийн URL</label><div style="display:flex;gap:6px;"><input class="cms-input" id="evurl_' + ev.key + '" placeholder="https://..." value="' + (ls('cms_ev_url_' + ev.key)||'') + '" style="flex:1;font-size:11px;"><button class="cms-save-btn" onclick="saveEvUrl(\\\'' + ev.key + '\\\',\\\'' + ev.imgClass + '\\\')" style="flex-shrink:0;padding:0 10px;">💾</button></div></div>' +
 '</div>' +
 '<div class="cms-field" style="margin-top:10px;"><label class="cms-label">🇲🇳 Арга хэмжээний нэр (МН)</label>' +
 '<input class="cms-input" id="ev_title_' + ev.key + '" value="' + savedTitle.replace(/"/g,'&quot;') + '"></div>' +
@@ -1005,10 +1006,15 @@ container.innerHTML += '<div class="cms-event-block">' +
 });
 CMS_EVENTS.forEach(function(ev) {
 var saved = ls('cms_ev_img_' + ev.key);
-var src = saved || (EVENT_IMAGES && EVENT_IMAGES[ev.key] ? EVENT_IMAGES[ev.key] : '');
-if(src) {
-setThumb(ev.key, src);
-applyEvImg(ev.imgClass, src);
+// Load default first
+var defaultSrc = EVENT_IMAGES && EVENT_IMAGES[ev.key] ? EVENT_IMAGES[ev.key] : '';
+if(defaultSrc) applyEvImg(ev.imgClass, defaultSrc);
+// Then override with saved (localStorage takes priority)
+var savedUrl = ls('cms_ev_url_' + ev.key);
+var savedSrc = savedUrl || saved;
+if(savedSrc) {
+setThumb(ev.key, savedSrc);
+applyEvImg(ev.imgClass, savedSrc);
 }
 });
 }
@@ -1017,13 +1023,40 @@ var file = input.files[0];
 if(!file) return;
 var reader = new FileReader();
 reader.onload = function(e) {
-var data = e.target.result;
-try { ls('cms_ev_img_' + key, data); } catch(err) { alert('Зураг хэт том! Жижиг зураг ашиглана уу.'); return; }
-setThumb(key, data);
-applyEvImg(imgClass, data);
-document.getElementById('imgstatus_' + key).innerHTML = '<span style="color:#4ade80">✓ Зураг оруулагдсан</span>';
+var img = new Image();
+img.onload = function() {
+  var canvas = document.createElement('canvas');
+  var MAX = 800;
+  var w = img.width, h = img.height;
+  if(w > MAX) { h = Math.round(h * MAX / w); w = MAX; }
+  if(h > MAX) { w = Math.round(w * MAX / h); h = MAX; }
+  canvas.width = w; canvas.height = h;
+  canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+  var data = canvas.toDataURL('image/jpeg', 0.75);
+  try {
+    ls('cms_ev_img_' + key, data);
+  } catch(err) {
+    // Try lower quality
+    data = canvas.toDataURL('image/jpeg', 0.4);
+    try { ls('cms_ev_img_' + key, data); } catch(e2) { alert('Зураг хэт том байна!'); return; }
+  }
+  setThumb(key, data);
+  applyEvImg(imgClass, data);
+  document.getElementById('imgstatus_' + key).innerHTML = '<span style="color:#4ade80">✓ Зураг оруулагдсан</span>';
+};
+img.src = e.target.result;
 };
 reader.readAsDataURL(file);
+}
+function saveEvUrl(key, imgClass) {
+var url = document.getElementById('evurl_' + key).value.trim();
+if(!url) return;
+ls('cms_ev_url_' + key, url);
+ls('cms_ev_img_' + key, url);
+setThumb(key, url);
+applyEvImg(imgClass, url);
+var el = document.getElementById('imgstatus_' + key);
+if(el) el.innerHTML = '<span style="color:#4ade80">✓ URL хадгалагдлаа</span>';
 }
 function setThumb(key, src) {
 var img = document.getElementById('thumbimg_' + key);
