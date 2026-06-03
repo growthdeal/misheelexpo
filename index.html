@@ -1006,15 +1006,11 @@ container.innerHTML += '<div class="cms-event-block">' +
 });
 CMS_EVENTS.forEach(function(ev) {
 var saved = ls('cms_ev_img_' + ev.key);
-// Load default first
-var defaultSrc = EVENT_IMAGES && EVENT_IMAGES[ev.key] ? EVENT_IMAGES[ev.key] : '';
-if(defaultSrc) applyEvImg(ev.imgClass, defaultSrc);
-// Then override with saved (localStorage takes priority)
-var savedUrl = ls('cms_ev_url_' + ev.key);
-var savedSrc = savedUrl || saved;
-if(savedSrc) {
-setThumb(ev.key, savedSrc);
-applyEvImg(ev.imgClass, savedSrc);
+if(saved) {
+setThumb(ev.key, saved);
+applyEvImg(ev.imgClass, saved);
+} else if(EVENT_IMAGES && EVENT_IMAGES[ev.key]) {
+applyEvImg(ev.imgClass, EVENT_IMAGES[ev.key]);
 }
 });
 }
