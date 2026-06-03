@@ -1065,7 +1065,7 @@ document.querySelectorAll('.' + imgClass).forEach(function(img) {
 img.src = src;
 img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1;border-radius:0;';
 img.removeAttribute('onerror');
-img.onload = function(){ this.style.display='block'; };
+img.onload = null;
 });
 }
 function saveEvent(key, imgClass) {
@@ -1292,7 +1292,11 @@ CMS_EVENTS.forEach(function(ev) {
 var defaultImg = EVENT_IMAGES && EVENT_IMAGES[ev.key] ? EVENT_IMAGES[ev.key] : '';
 if(defaultImg) applyEvImg(ev.imgClass, defaultImg);
 var savedImg = ls('cms_ev_img_' + ev.key);
-if(savedImg) applyEvImg(ev.imgClass, savedImg);
+if(savedImg) {
+  applyEvImg(ev.imgClass, savedImg);
+  // Apply again after a tick to override any async updates
+  (function(cls, src){ setTimeout(function(){ applyEvImg(cls, src); }, 50); })(ev.imgClass, savedImg);
+}
 var savedLink = ls('cms_ev_link_' + ev.key);
 applyEventLink(ev.key, savedLink || '');
 var t   = ls('cms_ev_title_'    + ev.key);
