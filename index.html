@@ -1005,9 +1005,10 @@ container.innerHTML += '<div class="cms-event-block">' +
 });
 CMS_EVENTS.forEach(function(ev) {
 var saved = ls('cms_ev_img_' + ev.key);
-if(saved) {
-setThumb(ev.key, saved);
-applyEvImg(ev.imgClass, saved);
+var src = saved || (EVENT_IMAGES && EVENT_IMAGES[ev.key] ? EVENT_IMAGES[ev.key] : '');
+if(src) {
+setThumb(ev.key, src);
+applyEvImg(ev.imgClass, src);
 }
 });
 }
@@ -1033,7 +1034,9 @@ if(st) st.innerHTML = '<span style="color:#4ade80">✓ Зураг оруулаг
 function applyEvImg(imgClass, src) {
 document.querySelectorAll('.' + imgClass).forEach(function(img) {
 img.src = src;
-img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;';
+img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1;border-radius:0;';
+img.removeAttribute('onerror');
+img.onload = function(){ this.style.display='block'; };
 });
 }
 function saveEvent(key, imgClass) {
@@ -1089,6 +1092,9 @@ if(monthEl) monthEl.textContent = month;
 });
 var btn = document.querySelector('#cms-events-list .cms-event-block:nth-child(' + (CMS_EVENTS.findIndex(e=>e.key===key)+1) + ') .cms-save-btn');
 if(btn) { btn.dataset.orig = '💾 Хадгалах'; showSaved(btn); }
+// Re-apply saved image
+var savedImg = ls('cms_ev_img_' + key);
+if(savedImg) applyEvImg(imgClass, savedImg);
 }
 
 function applyEventLink(key, link) {
