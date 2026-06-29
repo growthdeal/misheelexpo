@@ -251,7 +251,7 @@
   <span style="font-size:12px;color:#c41e3a;">© 2026 Мишээл Экспо. Бүх эрх хуулиар хамгаалагдсан. · Улаанбаатар, Монгол</span>
   <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:11px;color:rgba(255,255,255,0.4);">Вэбсайт, сошиал медиа: <a href="https://growthdeal.mn" target="_blank" style="color:rgba(255,255,255,0.5);text-decoration:none;">Growth Deal Ltd</a></span><button id="cmsOpenBtn" title="Админ панель">🔒 Админ</button></div>
 </div>
-</footer><button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button><div id="cmsLoginModal"><div id="cmsLoginBox"><div class="cms-login-logo"><div>🛠️</div><div>МИШЭЭЛ ЭКСПО <span>CMS</span></div></div><label class="cms-login-label">Нууц үг</label><input class="cms-login-input" type="password" id="cmsPasswordInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkCmsPassword()"><button class="cms-login-btn" onclick="checkCmsPassword()">Нэвтрэх →</button><div class="cms-login-error" id="cmsLoginError"></div><div class="cms-login-attempts" id="cmsLoginAttempts"></div></div></div><div id="cmsOverlay" onclick="closeCMS()"></div><div id="cmsPanel"><div class="cms-header"><div><div class="cms-header-title">🛠️ Мишээл Экспо CMS</div><div class="cms-header-sub">Вэбсайтын контентийг энд засна</div></div><button class="cms-close" onclick="closeCMS()">✕</button></div><div class="cms-tabs"><button class="cms-tab active" onclick="switchTab('hero', this)">🎬 Нүүр</button><button class="cms-tab" onclick="switchTab('events', this)">📅 Арга хэмжээ</button><button class="cms-tab" onclick="switchTab('stats', this)">📊 Статистик</button><button class="cms-tab" onclick="switchTab('ticker', this)">📢 Мэдэгдэл</button><button class="cms-tab" onclick="switchTab('contact', this)">📞 Холбоо</button><button class="cms-tab" onclick="switchTab('about', this)">🏢 Бидний тухай</button><button class="cms-tab" onclick="switchTab('brands', this)">🏷️ Брэндүүд</button><button class="cms-tab" onclick="switchTab('venue', this)">🏛️ Талбай</button><button class="cms-tab" onclick="switchTab('pastevents', this)">🗓️ Нийт</button><button class="cms-tab" onclick="switchTab('services', this)">🛠️ Үйлчилгээ</button><button class="cms-tab" onclick="switchTab('talbai', this)">🔗 Талбай</button></div><div class="cms-body"><div class="cms-tab-content active" id="tab-hero"><div class="cms-section-title">🎬 YouTube Арын Видео</div><div class="cms-field"><label class="cms-label">YouTube Линк эсвэл Video ID</label><input class="cms-input" id="cms-youtube-id" placeholder="https://youtube.com/watch?v=XXXXX эсвэл XXXXX"><div style="color:rgba(255,255,255,0.3);font-size:10px;margin-top:6px;line-height:1.6;"> Бүтэн линк буулгаж болно — автоматаар ID-г авна.<br> Жишээ: <span style="color:#c41e3a">youtube.com/watch?v=<strong>MYXT5-HOK40</strong></span></div></div><div id="cms-yt-preview" style="display:none;margin-bottom:12px;border-radius:6px;overflow:hidden;aspect-ratio:16/9;"><img id="cms-yt-thumb" src="" style="width:100%;height:100%;object-fit:cover;"></div><div class="cms-section-title">🎥 MP4 Арын Видео</div><div class="cms-field"><div id="cms-mp4-active" style="display:none;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:6px;padding:10px 12px;margin-bottom:10px;font-size:12px;color:#4ade80;"> ✓ Идэвхтэй: <strong id="cms-mp4-active-name"></strong></div><label class="cms-label">MP4 файл сонгох</label>
+</footer><button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button><div id="cmsLoginModal"><div id="cmsLoginBox"><div class="cms-login-logo"><div>🛠️</div><div>МИШЭЭЛ ЭКСПО <span>CMS</span></div></div><label class="cms-login-label">Нууц үг</label><input class="cms-login-input" type="password" id="cmsPasswordInput" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkCmsPassword()"><button class="cms-login-btn" onclick="checkCmsPassword()">Нэвтрэх →</button><div class="cms-login-error" id="cmsLoginError"></div><div class="cms-login-attempts" id="cmsLoginAttempts"></div></div></div><div id="cmsOverlay" onclick="closeCMS()"></div><div id="cmsPanel"><div class="cms-header"><div><div class="cms-header-title">🛠️ Мишээл Экспо CMS</div><div class="cms-header-sub">Вэбсайтын контентийг энд засна</div></div><div style="display:flex;gap:6px;align-items:center;"><button onclick="importCMSData()" title="Өөр browser-ээс экспортлосон JSON файлыг импортлох" style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.35);color:#60a5fa;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Montserrat',sans-serif;letter-spacing:0.3px;transition:all 0.2s;">📥</button><button onclick="exportDeployableSite()" title="Бүх CMS мэдээллийг шингээсэн HTML файл татах (өөр browser/серверт ашиглах)" style="background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.35);color:#4ade80;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Montserrat',sans-serif;letter-spacing:0.3px;transition:all 0.2s;">📤 Экспорт</button><button class="cms-close" onclick="closeCMS()">✕</button></div></div><div class="cms-tabs"><button class="cms-tab active" onclick="switchTab('hero', this)">🎬 Нүүр</button><button class="cms-tab" onclick="switchTab('events', this)">📅 Арга хэмжээ</button><button class="cms-tab" onclick="switchTab('stats', this)">📊 Статистик</button><button class="cms-tab" onclick="switchTab('ticker', this)">📢 Мэдэгдэл</button><button class="cms-tab" onclick="switchTab('contact', this)">📞 Холбоо</button><button class="cms-tab" onclick="switchTab('about', this)">🏢 Бидний тухай</button><button class="cms-tab" onclick="switchTab('brands', this)">🏷️ Брэндүүд</button><button class="cms-tab" onclick="switchTab('venue', this)">🏛️ Талбай</button><button class="cms-tab" onclick="switchTab('pastevents', this)">🗓️ Нийт</button><button class="cms-tab" onclick="switchTab('services', this)">🛠️ Үйлчилгээ</button><button class="cms-tab" onclick="switchTab('talbai', this)">🔗 Талбай</button></div><div class="cms-body"><div class="cms-tab-content active" id="tab-hero"><div class="cms-section-title">🎬 YouTube Арын Видео</div><div class="cms-field"><label class="cms-label">YouTube Линк эсвэл Video ID</label><input class="cms-input" id="cms-youtube-id" placeholder="https://youtube.com/watch?v=XXXXX эсвэл XXXXX"><div style="color:rgba(255,255,255,0.3);font-size:10px;margin-top:6px;line-height:1.6;"> Бүтэн линк буулгаж болно — автоматаар ID-г авна.<br> Жишээ: <span style="color:#c41e3a">youtube.com/watch?v=<strong>MYXT5-HOK40</strong></span></div></div><div id="cms-yt-preview" style="display:none;margin-bottom:12px;border-radius:6px;overflow:hidden;aspect-ratio:16/9;"><img id="cms-yt-thumb" src="" style="width:100%;height:100%;object-fit:cover;"></div><div class="cms-section-title">🎥 MP4 Арын Видео</div><div class="cms-field"><div id="cms-mp4-active" style="display:none;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:6px;padding:10px 12px;margin-bottom:10px;font-size:12px;color:#4ade80;"> ✓ Идэвхтэй: <strong id="cms-mp4-active-name"></strong></div><label class="cms-label">MP4 файл сонгох</label>
 <div style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);border-radius:6px;padding:8px 12px;margin-bottom:8px;font-size:11px;color:#fbbf24;line-height:1.6;">
   ⚠️ <strong>Анхаарна уу:</strong> Видео файл браузерт хадгалахад хэт том байж болно (5MB хязгаар).<br>
   <strong>Зөвлөмж:</strong> YouTube линк эсвэл доорх URL талбарыг ашиглана уу.
@@ -2616,6 +2616,111 @@ function exportHTMLWithCMS() {
   } catch(err) {
     alert('Алдаа гарлаа: ' + err.message);
   }
+}
+</script>
+<script>
+/* ============================================================
+   📤 EXPORT DEPLOYABLE SITE
+   Generates a self-contained HTML file with all CMS data
+   (texts + images + settings) baked in, so it works in any
+   browser without localStorage.
+   ============================================================ */
+function exportDeployableSite() {
+  if (!confirm('📤 Одоогийн бүх CMS мэдээлэл + зургуудыг шингээсэн HTML файл татах.\n\nҮүний дараа:\n• Уг файлыг серверт байршуулна уу, эсвэл\n• Өөр browser дээр нээнэ үү\n\nҮргэлжлүүлэх үү?')) return;
+  try {
+    // 1) Collect all CMS data from localStorage
+    var cmsData = {};
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (key && key.indexOf('cms_') === 0) {
+          try { cmsData[key] = localStorage.getItem(key); } catch(e) {}
+        }
+      }
+    } catch(e) {}
+
+    // 2) Get the current HTML source
+    var html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+    // 3) Inject bootstrap script that pre-populates localStorage BEFORE page init
+    var bootstrap = '<script>(function(){try{var d=' + JSON.stringify(cmsData).replace(/<\/script>/gi, '<\\/script>') + ';for(var k in d){try{localStorage.setItem(k,d[k])}catch(e){}}}catch(e){}})();<\/script>';
+    if (html.indexOf('</head>') !== -1) {
+      html = html.replace('</head>', bootstrap + '</head>');
+    } else {
+      html = html.replace('<head>', '<head>' + bootstrap);
+    }
+
+    // 4) Patch YouTube ID into the JS variable so it survives
+    if (cmsData['cms_youtube_id']) {
+      var ytId = cmsData['cms_youtube_id'].replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+      html = html.replace(
+        "var YT_VIDEO_ID = (function(){ try { return localStorage.getItem('cms_youtube_id') || 'bwcBeHMn-_U'; } catch(e){ return 'bwcBeHMn-_U'; } })();",
+        "var YT_VIDEO_ID = '" + ytId + "';"
+      );
+    }
+
+    // 5) Patch past events to use a JS-embedded fallback if localStorage is empty
+    if (cmsData['cms_past_events']) {
+      var pe = cmsData['cms_past_events'].replace(/<\/script>/gi, '<\\/script>');
+      if (html.indexOf('var YT_VIDEO_ID') !== -1 && html.indexOf('CMS_PE_PRELOAD') === -1) {
+        html = html.replace('var YT_VIDEO_ID', 'var CMS_PE_PRELOAD=' + pe + ';\nvar YT_VIDEO_ID');
+      }
+      html = html.replace(
+        "try { return JSON.parse(localStorage.getItem('cms_past_events') || '[]'); } catch(e) { return []; }",
+        "try { var _d=JSON.parse(localStorage.getItem('cms_past_events')||'[]'); return _d.length?_d:(typeof CMS_PE_PRELOAD!='undefined'?CMS_PE_PRELOAD:[]); } catch(e){ return typeof CMS_PE_PRELOAD!='undefined'?CMS_PE_PRELOAD:[]; }"
+      );
+    }
+
+    // 6) Strip auth so exported file never auto-opens the panel
+    html = html.replace(/sessionStorage\.setItem\('cms_auth',\s*'true'\)/g, "sessionStorage.removeItem('cms_auth')");
+
+    // 7) Trigger download
+    var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'misheel_expo_deployed_' + new Date().toISOString().slice(0, 10) + '.html';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ URL.revokeObjectURL(url); if(a.parentNode) a.parentNode.removeChild(a); }, 3000);
+
+    // 8) Show feedback
+    var sizeMB = (blob.size / 1024 / 1024).toFixed(2);
+    alert('✓ Экспорт амжилттай!\n\nФайлын хэмжээ: ' + sizeMB + ' MB\n\nОдоо:\n• Уг файлыг серверт байршуулаад deploy хийх, эсвэл\n• Өөр browser дээр нээж шалгах боломжтой');
+  } catch(err) {
+    alert('❌ Экспорт хийхэд алдаа гарлаа:\n\n' + err.message + '\n\nМагадгүй localStorage хэт дүүрсэн байх. Зургуудыг жижигрүүлж дахин оролдоно уу.');
+    console.error('Export error:', err);
+  }
+}
+
+/* ============================================================
+   📥 IMPORT CMS DATA (JSON file exported from another browser)
+   ============================================================ */
+function importCMSData() {
+  var input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'application/json,.json';
+  input.onchange = function(e) {
+    var file = e.target.files[0];
+    if (!file) return;
+    if (!confirm('📥 Импорт хийх үү?\n\nХуучин CMS мэдээлэл дээрхтэй ижил түлхүүртэй зүйлс ШАЛГАГДАЖ, шинэ мэдээллээр солигдоно.\n\nҮргэлжлүүлэх үү?')) return;
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      try {
+        var data = JSON.parse(ev.target.result);
+        var count = 0;
+        Object.keys(data).forEach(function(key){
+          try { localStorage.setItem(key, data[key]); count++; } catch(e) {}
+        });
+        alert('✓ ' + count + ' тохиргоо импорт хийгдлээ!\n\nХуудсыг refresh хийнэ үү.');
+        location.reload();
+      } catch(err) {
+        alert('❌ Файл уншихад алдаа: ' + err.message);
+      }
+    };
+    reader.readAsText(file);
+  };
+  input.click();
 }
 </script>
 </body></html>
